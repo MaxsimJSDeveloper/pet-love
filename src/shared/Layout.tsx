@@ -3,9 +3,9 @@ import Header from "../components/logic/Header";
 
 const Layout = () => {
   return (
-    <div>
+    <div className="flex flex-col items-center min-h-screen">
       <Header />
-      <main>
+      <main className="flex-grow">
         <Outlet />
       </main>
     </div>
