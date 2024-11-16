@@ -1,5 +1,5 @@
 import Navigation from "./Navigation/Navigation";
-import sprite from "/public/img/symbol-defs.svg";
+import sprite from "/img/symbol-defs.svg";
 import { NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 

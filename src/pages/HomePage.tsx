@@ -13,7 +13,7 @@ const HomePage = () => {
         </p>
       </div>
       <div>
-        <img src="/public/img/mobile/home.png" alt="people with dog" />
+        <img src="/img/mobile/home@2x.png" alt="people with dog" width={335} />
       </div>
     </div>
   );

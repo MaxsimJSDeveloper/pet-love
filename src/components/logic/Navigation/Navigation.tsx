@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import AuthNav from "../AuthNav";
 import { NavigationProps } from "./Navigation.types";
 
-import sprite from "/public/img/symbol-defs.svg";
+import sprite from "/img/symbol-defs.svg";
 import { linkClass } from "./NavigationStyles";
 
 const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
