@@ -1,21 +1,22 @@
 import { Suspense } from "react";
 import Loader from "./components/ui/Loader";
-import { Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./shared/Layout";
+import HomePage from "./pages/HomePage";
+import NoticesPage from "./pages/NoticesPage";
+import OurFriendsPage from "./pages/OurFriendsPage";
 
 function App() {
   return (
     <>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route element={<SharedLayout />}>
+          <Route element={<Layout />}>
             <Route path="/" element={<HomePage />} />
-            <Route path="/catalog" element={<CampersCatalogPage />} />
-            <Route path="/catalog/:id" element={<CamperDetailsPage />}>
-              <Route index element={<Navigate to="features" replace />} />
-              <Route path="features" element={<CamperFeatures />} />
-              <Route path="reviews" element={<CamperReviews />} />
-            </Route>
-          </Route>
+            <Route path="/notices" element={<NoticesPage />} />
+            <Route path="/friends" element={<OurFriendsPage />}/>
+            <Route path="/friends" element={<OurFriendsPage />}></Route>
+              
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
