@@ -35,9 +35,9 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
           className={({ isActive }) =>
             isActive ? `${linkClass} border-[#f6b83d]` : linkClass
           }
-          to="/"
+          to="/news"
         >
-          <p className="text-center">Home</p>
+          <p className="text-center">News</p>
         </NavLink>
         <NavLink
           className={({ isActive }) =>

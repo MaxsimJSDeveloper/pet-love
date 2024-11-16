@@ -1,5 +1,11 @@
+import Title from "../shared/Tittle";
+
 const NoticesPage = () => {
-  return <h1>NoticesPage</h1>;
+  return (
+    <>
+      <Title>Find your favorite pet</Title>
+    </>
+  );
 };
 
 export default NoticesPage;

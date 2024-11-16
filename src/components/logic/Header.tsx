@@ -34,7 +34,13 @@ const Header = () => {
       <NavLink to="/" className="flex items-center gap-2">
         <div className="flex items-end justify-center gap-0 w-[76px] h-[20px] font-bold text-[20px] leading-[100%] tracking-[-0.04em] text-white">
           <p>petl</p>
-          <svg className="fill-white" width={23} height={23}>
+          <svg
+            className={
+              location.pathname === "/" ? "fill-white" : "fill-[#F6B83D]"
+            }
+            width={23}
+            height={23}
+          >
             <use xlinkHref={`${sprite}#icon-logo`} />
           </svg>
           <p>ve</p>
@@ -48,7 +54,13 @@ const Header = () => {
         }}
         className="bg-transparent border-none text-xl p-2"
       >
-        <svg className="fill-[#F6B83D]" width={23} height={23}>
+        <svg
+          className={
+            location.pathname === "/" ? "stroke-white" : "stroke-[#262626]"
+          }
+          width={23}
+          height={23}
+        >
           <use xlinkHref={`${sprite}#icon-burger`} />
         </svg>
       </button>

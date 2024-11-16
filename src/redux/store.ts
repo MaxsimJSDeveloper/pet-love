@@ -9,27 +9,26 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // используем локальное хранилище браузера для сохранения состояния
+import storage from "redux-persist/lib/storage";
 import { newsReduser } from "./news/slice";
 
-// Конфигурация для redux-persist
 const persistConfig = {
-  key: "root", // ключ для сохранения состояния
-  storage, // использование локального хранилища
+  key: "root",
+  storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, newsReduser); // оборачиваем редьюсер в persistReducer
+const persistedReducer = persistReducer(persistConfig, newsReduser);
 
 export const store = configureStore({
   reducer: {
-    news: persistedReducer, // применяем persistReducer к новостям
+    news: persistedReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER], // игнорируем специфичные действия redux-persist
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
 });
 
-export const persistor = persistStore(store); // создаем persistor для восстановления состояния
+export const persistor = persistStore(store);

@@ -16,5 +16,9 @@
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.875" d="M15 5l-10 10"></path>
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.875" d="M5 5l10 10"></path>
 </symbol>
+<symbol id="icon-search" viewBox="0 0 20 20">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2222" d="M9.167 15.833c3.682 0 6.667-2.985 6.667-6.667s-2.985-6.667-6.667-6.667c-3.682 0-6.667 2.985-6.667 6.667s2.985 6.667 6.667 6.667z"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2222" d="M17.501 17.5l-3.625-3.625"></path>
+</symbol>
 </defs>
 </svg>

@@ -1,5 +1,13 @@
+import SearchField from "../shared/SearchField";
+import Title from "../shared/Tittle";
+
 const NewsPage = () => {
-  return <h1>News Page</h1>;
+  return (
+    <>
+      <Title>News</Title>
+      <SearchField />
+    </>
+  );
 };
 
 export default NewsPage;
