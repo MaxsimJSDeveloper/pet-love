@@ -3,6 +3,7 @@ import sprite from "/img/symbol-defs.svg";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Logo from "../../ui/Logo/Logo";
+import css from "./HeaderStyles";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -31,7 +32,11 @@ const Header = () => {
   }, [location]);
 
   return (
-    <header className="flex justify-between items-center fixed top-0 left-0 right-0 p-4 max-w-[290px] w-full mx-auto z-50">
+    <header
+      className={`${css.header} ${
+        location.pathname === "/" ? "px-[16px]" : "px-0"
+      }`}
+    >
       <Logo location={location.pathname} />
 
       <button
@@ -52,7 +57,11 @@ const Header = () => {
         </svg>
       </button>
 
-      <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Navigation
+        location={location.pathname}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      />
     </header>
   );
 };

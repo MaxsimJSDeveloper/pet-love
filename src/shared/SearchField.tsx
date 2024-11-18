@@ -9,7 +9,7 @@ const SearchField = () => {
       ></input>
       <button className="w-[18px] h-[18px]">
         <svg
-          className="fill-white stroke-[#262626] absolute top-[12%] right-[8%]"
+          className="fill-white stroke-[#262626] absolute top-[6%] right-[3%]"
           width={32}
           height={32}
         >

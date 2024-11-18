@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
-import AuthNav from "../AuthNav";
+import AuthNav from "../AuthNav/AuthNav";
 import { NavigationProps } from "./Navigation.types";
 
 import sprite from "/img/symbol-defs.svg";
-import { linkClass } from "./NavigationStyles";
+import css from "./NavigationStyles";
 
-const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
+const Navigation = ({ isOpen, setIsOpen, location }: NavigationProps) => {
   const handleNavClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
   };
@@ -16,24 +16,30 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
 
   return (
     <nav
-      className={`${
-        isOpen
-          ? "absolute top-0 right-[-23px] w-[218px] bg-[#fff] h-[100vh] p-[20px] flex flex-col"
-          : "hidden"
+      className={`${isOpen ? css.navigation : "hidden"} ${
+        location === "/" && isOpen ? "bg-white" : ""
       }`}
       onClick={handleNavClick}
     >
       <div className="flex justify-end items-start">
         <button onClick={handleClose} type="button">
-          <svg className="stroke-[#262626]" width={32} height={32}>
+          <svg
+            className={`${
+              location === "/" ? "stroke-[#262626]" : "stroke-white"
+            }`}
+            width={32}
+            height={32}
+          >
             <use xlinkHref={`${sprite}#icon-close`} />
           </svg>
         </button>
       </div>
-      <div className="flex flex-col items-center justify-center flex-grow space-y-4">
+      <div className={`${css.navigationWrap}`}>
         <NavLink
           className={({ isActive }) =>
-            isActive ? `${linkClass} border-[#f6b83d]` : linkClass
+            `${css.linkClass} ${
+              location !== "/" ? "text-white  hover:border-white" : ""
+            } ${isActive ? "border-white" : ""}`
           }
           to="/news"
         >
@@ -41,7 +47,9 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
         </NavLink>
         <NavLink
           className={({ isActive }) =>
-            isActive ? `${linkClass} border-[#f6b83d]` : linkClass
+            `${css.linkClass} ${
+              location !== "/" ? "text-white  hover:border-white" : ""
+            } ${isActive ? "border-white" : ""}`
           }
           to="/notices"
         >
@@ -49,7 +57,9 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
         </NavLink>
         <NavLink
           className={({ isActive }) =>
-            isActive ? `${linkClass} border-[#f6b83d]` : linkClass
+            `${css.linkClass} ${
+              location !== "/" ? "text-white hover:border-white" : ""
+            } ${isActive ? "border-white" : ""}`
           }
           to="/friends"
         >
@@ -58,7 +68,7 @@ const Navigation = ({ isOpen, setIsOpen }: NavigationProps) => {
       </div>
 
       <div className="mt-auto flex flex-col items-center">
-        <AuthNav />
+        <AuthNav location={location} />
       </div>
     </nav>
   );

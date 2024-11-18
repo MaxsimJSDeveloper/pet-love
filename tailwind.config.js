@@ -8,7 +8,8 @@ export default {
       },
       colors: {
         "white-transparent": "rgba(255, 255, 255, 0.4)",
-        "input-border-color": "rgba(38, 38, 38, 0.15);",
+        "input-border-color": "rgba(38, 38, 38, 0.15)",
+        "link-border-color": "rgba(255, 255, 255, 0.5)",
       },
     },
   },

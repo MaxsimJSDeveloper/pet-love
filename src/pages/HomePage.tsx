@@ -1,6 +1,6 @@
 const HomePage = () => {
   return (
-    <div className="flex flex-col absolute top-1 left-[40%]">
+    <div className="flex flex-col absolute top-2 left-[40%]">
       <div className="w-[335px] h-[390px] bg-[#f6b83d] rounded-[30px] flex flex-col justify-end p-[20px]">
         <h1 className="text-[50px] font-bold text-white tracking-[-0.03em] leading-[96%] mb-[20px]">
           Take good
