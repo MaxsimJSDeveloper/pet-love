@@ -5,9 +5,9 @@
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M10 10c2.071 0 3.75-1.679 3.75-3.75s-1.679-3.75-3.75-3.75c-2.071 0-3.75 1.679-3.75 3.75s1.679 3.75 3.75 3.75z"></path>
 </symbol>
 <symbol id="icon-burger" viewBox="0 0 20 20">
-<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.875" d="M2.5 10h15"></path>
-<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.875" d="M2.5 5h15"></path>
-<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.875" d="M2.5 15h15"></path>
+<path  stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.875" d="M2.5 10h15"></path>
+<path  stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.875" d="M2.5 5h15"></path>
+<path  stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.875" d="M2.5 15h15"></path>
 </symbol>
 <symbol id="icon-logo" viewBox="0 0 20 20">
 <path d="M9.995 4.726c-1.599-1.889-4.267-2.397-6.271-0.667s-2.286 4.621-0.712 6.666c1.008 1.31 3.59 3.739 5.315 5.317 0.574 0.524 0.86 0.786 1.204 0.891 0.295 0.090 0.633 0.090 0.928 0 0.343-0.105 0.63-0.367 1.204-0.891 1.726-1.577 4.307-4.006 5.315-5.317 1.574-2.045 1.326-4.955-0.712-6.666s-4.671-1.221-6.271 0.667z"></path>

@@ -10,14 +10,14 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { newsReduser } from "./news/slice";
+import { newsReducer } from "./news/slice";
 
 const persistConfig = {
   key: "root",
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, newsReduser);
+const persistedReducer = persistReducer(persistConfig, newsReducer);
 
 export const store = configureStore({
   reducer: {

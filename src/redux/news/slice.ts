@@ -10,7 +10,7 @@ const initialState: NewsState = {
   error: null,
 };
 
-const newsSlise = createSlice({
+const newsSlice = createSlice({
   name: "news",
   initialState,
   reducers: {},
@@ -23,8 +23,9 @@ const newsSlise = createSlice({
         fetchNews.fulfilled,
         (state, action: PayloadAction<NewsResponse>) => {
           state.isLoading = false;
-          state.news = action.payload.news;
-          state.total = action.payload.total;
+          state.news = action.payload.results;
+          state.total = action.payload.totalPages * action.payload.perPage;
+          state.currentPage = action.payload.page;
         }
       )
       .addCase(fetchNews.rejected, (state, action) => {
@@ -33,4 +34,5 @@ const newsSlise = createSlice({
       });
   },
 });
-export const newsReduser = newsSlise.reducer;
+
+export const newsReducer = newsSlice.reducer;

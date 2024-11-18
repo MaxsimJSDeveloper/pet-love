@@ -1,14 +1,16 @@
+export interface NewsResponse {
+  page: number;
+  perPage: number;
+  totalPages: number;
+  results: Array<NewsItem>;
+}
+
 export interface NewsState {
-  news: NewsItem[];
+  news: Array<NewsItem>;
   currentPage: number;
   total: number;
   isLoading: boolean;
   error: string | null;
-}
-
-export interface NewsResponse {
-  news: NewsItem[];
-  total: number;
 }
 
 export interface NewsItem {
