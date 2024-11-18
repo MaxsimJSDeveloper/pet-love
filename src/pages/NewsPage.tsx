@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { fetchNews } from "../redux/news/operations";
 import Loader from "../components/ui/Loader";
 import NewsList from "../components/logic/NewsList/NewsList";
+import Pagination from "../components/logic/Pagination/Pagination";
 
 const NewsPage = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -34,6 +35,7 @@ const NewsPage = () => {
       ) : (
         !loading && <p>No news available.</p>
       )}
+      <Pagination />
     </>
   );
 };
