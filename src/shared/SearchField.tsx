@@ -9,9 +9,9 @@ const SearchField = () => {
       ></input>
       <button className="w-[18px] h-[18px]">
         <svg
-          className="fill-white stroke-[#262626] absolute top-[6%] right-[3%]"
-          width={32}
-          height={32}
+          className="fill-white stroke-[#262626] absolute top-[19%] right-[3%]"
+          width={18}
+          height={18}
         >
           <use xlinkHref={`${sprite}#icon-search`} />
         </svg>

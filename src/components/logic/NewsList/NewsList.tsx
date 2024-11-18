@@ -1,10 +1,13 @@
+import NewsItem from "../NewsItem/NewsItem";
 import { NewsListProps } from "./NewsList.types";
 
 const NewsList = ({ news }: NewsListProps) => {
   return (
-    <ul>
+    <ul className="flex flex-col gap-[24px]">
       {news.map((topic) => (
-        <li key={topic.id}>{topic.title}</li>
+        <li key={topic.id}>
+          <NewsItem topic={topic} />
+        </li>
       ))}
     </ul>
   );
