@@ -7,8 +7,8 @@ const SearchField = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value.trim();
-    dispatch(resetPage()); // сбрасываем страницу при изменении поиска
-    dispatch(getKeyword(searchValue)); // обновляем значение в store
+    dispatch(resetPage());
+    dispatch(getKeyword(searchValue));
   };
 
   return (
@@ -17,7 +17,7 @@ const SearchField = () => {
         name="search"
         placeholder="Search"
         className="w-[335px] h-[42px] p-[12px] border-[1px] input-border-color relative rounded-[30px]"
-        onChange={handleInputChange} // отслеживаем изменения в поле
+        onChange={handleInputChange}
       />
       <button type="submit" className="w-[18px] h-[18px]">
         <svg
