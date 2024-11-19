@@ -5,6 +5,7 @@ import { NewsResponse, NewsState } from "./types";
 const initialState: NewsState = {
   news: [],
   currentPage: 1,
+  perPage: 6,
   total: 0,
   isLoading: false,
   error: null,
@@ -13,7 +14,17 @@ const initialState: NewsState = {
 const newsSlice = createSlice({
   name: "news",
   initialState,
-  reducers: {},
+  reducers: {
+    decrementPage(state) {
+      state.currentPage -= 1;
+    },
+    incrementPage(state, action: PayloadAction<number>) {
+      state.currentPage = action.payload; // Обновляем текущую страницу, передавая новое значение из action
+    },
+    resetPage(state) {
+      state.currentPage = 1; // Если вы хотите сбросить страницу в 1, а не в 0
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchNews.pending, (state) => {
@@ -24,8 +35,9 @@ const newsSlice = createSlice({
         (state, action: PayloadAction<NewsResponse>) => {
           state.isLoading = false;
           state.news = action.payload.results;
-          state.total = action.payload.totalPages * action.payload.perPage;
-          state.currentPage = action.payload.page;
+          state.total = action.payload.totalPages;
+          state.currentPage = action.payload.page; // Задаем текущую страницу после получения данных
+          state.error = null;
         }
       )
       .addCase(fetchNews.rejected, (state, action) => {
@@ -34,5 +46,7 @@ const newsSlice = createSlice({
       });
   },
 });
+
+export const { decrementPage, incrementPage, resetPage } = newsSlice.actions;
 
 export const newsReducer = newsSlice.reducer;

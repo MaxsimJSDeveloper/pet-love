@@ -9,6 +9,7 @@ export interface NewsState {
   news: Array<NewsItem>;
   currentPage: number;
   total: number;
+  perPage: number;
   isLoading: boolean;
   error: string | null;
 }
