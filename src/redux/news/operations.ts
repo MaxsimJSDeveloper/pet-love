@@ -6,9 +6,9 @@ axios.defaults.baseURL = "https://petlove.b.goit.study/api";
 
 export const fetchNews = createAsyncThunk<
   NewsResponse,
-  { currentPage: number; perPage: number },
+  { currentPage: number; perPage: number; keyword: string },
   { rejectValue: string }
->("news/fetchAll", async ({ currentPage, perPage }, thunkAPI) => {
+>("news/fetchAll", async ({ currentPage, perPage, keyword }, thunkAPI) => {
   try {
     if (currentPage <= 0 || perPage <= 0) {
       throw new Error("Invalid pagination parameters");
@@ -16,7 +16,11 @@ export const fetchNews = createAsyncThunk<
 
     const params = new URLSearchParams();
     params.append("page", String(currentPage));
-    params.append("perPage", String(perPage));
+    params.append("limit", String(perPage));
+
+    if (keyword != "" || null || undefined) {
+      params.append("keyword", keyword);
+    }
 
     const response = await axios.get(`/news?${params.toString()}`);
     return response.data;

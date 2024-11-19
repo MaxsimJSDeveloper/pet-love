@@ -7,3 +7,5 @@ export const selectError = (state: RootState) => state.news.error;
 export const selectTotalPages = (state: RootState) => state.news.total;
 export const selectPerPage = (state: RootState) => state.news.perPage;
 export const selectCurrentPage = (state: RootState) => state.news.currentPage;
+
+export const selectKeywords = (state: RootState) => state.news.keyword;

@@ -10,6 +10,7 @@ export interface NewsState {
   currentPage: number;
   total: number;
   perPage: number;
+  keyword: string;
   isLoading: boolean;
   error: string | null;
 }

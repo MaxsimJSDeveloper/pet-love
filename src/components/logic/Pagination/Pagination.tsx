@@ -2,15 +2,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../../redux/store";
 import { incrementPage } from "../../../redux/news/slice";
 import ReactPaginate from "react-paginate";
-import { selectTotalPages } from "../../../redux/news/selectors";
+import {
+  selectKeywords,
+  selectPerPage,
+  selectTotalPages,
+} from "../../../redux/news/selectors";
+import { fetchNews } from "../../../redux/news/operations";
 
 const Pagination = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const totalPages = useSelector(selectTotalPages); // Получаем общее количество страниц
+  const totalPages = useSelector(selectTotalPages);
+  const perPage = useSelector(selectPerPage);
+  const keyword = useSelector(selectKeywords);
 
   const handlePageChange = (selectedItem: { selected: number }) => {
-    const newPage = selectedItem.selected + 1; // +1, чтобы преобразовать индекс в номер страницы (пагинация начинается с 0, а страницы с 1)
-    dispatch(incrementPage(newPage)); // передаем новую страницу в Redux
+    const newPage = selectedItem.selected + 1;
+    dispatch(incrementPage(newPage));
+    dispatch(fetchNews({ currentPage: newPage, perPage, keyword }));
   };
 
   return (
@@ -21,7 +29,7 @@ const Pagination = () => {
         onPageChange={handlePageChange}
         pageRangeDisplayed={1}
         marginPagesDisplayed={1}
-        pageCount={totalPages} // Общее количество страниц
+        pageCount={totalPages}
         previousLabel="<"
         renderOnZeroPageCount={null}
         containerClassName="flex items-center space-x-2"

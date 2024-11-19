@@ -7,6 +7,7 @@ const initialState: NewsState = {
   currentPage: 1,
   perPage: 6,
   total: 0,
+  keyword: "",
   isLoading: false,
   error: null,
 };
@@ -19,10 +20,13 @@ const newsSlice = createSlice({
       state.currentPage -= 1;
     },
     incrementPage(state, action: PayloadAction<number>) {
-      state.currentPage = action.payload; // Обновляем текущую страницу, передавая новое значение из action
+      state.currentPage = action.payload;
     },
     resetPage(state) {
-      state.currentPage = 1; // Если вы хотите сбросить страницу в 1, а не в 0
+      state.currentPage = 1;
+    },
+    getKeyword(state, action: PayloadAction<string>) {
+      state.keyword = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -36,7 +40,7 @@ const newsSlice = createSlice({
           state.isLoading = false;
           state.news = action.payload.results;
           state.total = action.payload.totalPages;
-          state.currentPage = action.payload.page; // Задаем текущую страницу после получения данных
+          state.currentPage = action.payload.page;
           state.error = null;
         }
       )
@@ -47,6 +51,7 @@ const newsSlice = createSlice({
   },
 });
 
-export const { decrementPage, incrementPage, resetPage } = newsSlice.actions;
+export const { decrementPage, incrementPage, resetPage, getKeyword } =
+  newsSlice.actions;
 
 export const newsReducer = newsSlice.reducer;

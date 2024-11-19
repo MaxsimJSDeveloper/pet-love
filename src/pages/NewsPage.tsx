@@ -6,9 +6,9 @@ import {
   selectCurrentPage,
   selectError,
   selectIsLoading,
+  selectKeywords,
   selectNews,
   selectPerPage,
-  selectTotalPages,
 } from "../redux/news/selectors";
 import { useEffect } from "react";
 import { fetchNews } from "../redux/news/operations";
@@ -18,24 +18,21 @@ import Pagination from "../components/logic/Pagination/Pagination";
 
 const NewsPage = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const currentPage = useSelector(selectCurrentPage);
-  const perPage = useSelector(selectPerPage);
+
   const news = useSelector(selectNews);
   const loading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-  const totalPages = useSelector(selectTotalPages);
+  const currentPage = useSelector(selectCurrentPage);
+  const perPage = useSelector(selectPerPage);
+
+  const keyword = useSelector(selectKeywords);
 
   useEffect(() => {
     if (currentPage > 0 && perPage > 0) {
-      dispatch(fetchNews({ currentPage, perPage }));
+      dispatch(fetchNews({ currentPage, perPage, keyword }));
     }
-  }, [currentPage, dispatch, perPage]);
-
-  useEffect(() => {
-    console.log("Current Page:", currentPage);
-    console.log("Total Pages:", totalPages);
-  }, [currentPage, totalPages]);
+  }, [currentPage, dispatch, perPage, keyword]);
 
   return (
     <>
