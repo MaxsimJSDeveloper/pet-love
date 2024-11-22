@@ -1,4 +1,4 @@
-import { useField } from "formik";
+import { ErrorMessage, useField } from "formik";
 
 interface InputProps {
   placeholder: string;
@@ -37,9 +37,11 @@ const Input = ({ placeholder, twoIcons, type, name }: InputProps) => {
         </div>
       )}
       {meta.touched && meta.error && (
-        <div className="absolute text-red-500 text-sm mt-1 top-full left-0">
-          {meta.error}
-        </div>
+        <ErrorMessage
+          component="div"
+          name={name}
+          className="absolute text-red-500 text-sm mt-1 top-full left-0"
+        />
       )}
       {meta.touched && meta.error && (
         <svg

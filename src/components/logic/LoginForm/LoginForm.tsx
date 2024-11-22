@@ -41,7 +41,7 @@ const LoginForm = () => {
         </div>
         <button
           type="submit"
-          className="bg-[#f6b83d] text-white uppercase h-[42px] rounded-[30px]"
+          className="bg-[#f6b83d] text-white uppercase h-[42px] rounded-[30px] mb-[12px]"
         >
           Log In
         </button>
