@@ -24,7 +24,7 @@ const OurFriendsPage = () => {
 
   return (
     <>
-      <Title>Our friends</Title>
+      <Title style="mb-[40px] mt-[54px]">Our friends</Title>
       {isLoading && <Loader />}
       {error && <p>Error: {error}</p>}
       {friends.length > 0 ? (

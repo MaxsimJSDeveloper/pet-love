@@ -36,7 +36,7 @@ const NewsPage = () => {
 
   return (
     <>
-      <Title>News</Title>
+      <Title style="mt-[54px] mb-[15px]">News</Title>
       <SearchField />
       {loading && <Loader />}
       {error && <p>Error: {error}</p>}

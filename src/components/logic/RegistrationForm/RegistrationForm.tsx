@@ -1,15 +1,16 @@
 import { Form, Formik } from "formik";
 import Input from "../../../shared/Input";
-import { loginSchema } from "../../../utils/validation";
-import { useState } from "react";
 import Button from "../../../shared/Button";
+import { registrationSchema } from "../../../utils/validation";
+import { useState } from "react";
 
-const LoginForm = () => {
+const RegistrationForm = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const toggleVisible = () => setIsVisible((prev) => !prev);
 
   const initialValues = {
+    name: "",
     email: "",
     password: "",
   };
@@ -22,9 +23,10 @@ const LoginForm = () => {
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      validationSchema={loginSchema}
+      validationSchema={registrationSchema}
     >
       <Form className="flex flex-col gap-[10px] w-[295px]">
+        <Input name="name" placeholder="Name" type="text" />
         <Input name="email" placeholder="Email" type="text" />
         <div className="relative">
           <Input
@@ -39,11 +41,11 @@ const LoginForm = () => {
           type="submit"
           className="bg-[#f6b83d] text-white uppercase h-[42px] rounded-[30px] mb-[12px]"
         >
-          Log In
+          Registration
         </button>
       </Form>
     </Formik>
   );
 };
 
-export default LoginForm;
+export default RegistrationForm;

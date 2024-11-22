@@ -40,17 +40,19 @@ const FriendsItem = ({ friend }: FriendsItemProps) => {
         alt={title}
       />
       <div>
-        <h2>{title}</h2>
+        <h2 className="text-[16px] font-bold leading-[125%] tracking-[-0.04em] mb-[14px]">
+          {title}
+        </h2>
         <p>
-          <span>Email: </span>
+          <span className="text-date-color">Email: </span>
           {formattedEmail}
         </p>
         <p>
-          <span>Phone: </span>
+          <span className="text-date-color">Phone: </span>
           {formattedPhone}
         </p>
         <p>
-          <span>Address: </span>
+          <span className="text-date-color">Address: </span>
           {formattedAddress}
         </p>
       </div>

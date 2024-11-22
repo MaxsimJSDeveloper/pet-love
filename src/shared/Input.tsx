@@ -15,7 +15,7 @@ const Input = ({ placeholder, twoIcons, type, name }: InputProps) => {
       <input
         {...field}
         placeholder={placeholder}
-        className={`relative w-full h-[42px] p-[12px] rounded-[30px] border-[1px] input-border-color ${
+        className={`relative w-full h-[42px] p-[12px] rounded-[30px] border-[1px] border-input-border-color ${
           meta.touched && meta.error ? "border-[#ef2447]" : "border-[#08aa83]"
         }`}
         type={type}
