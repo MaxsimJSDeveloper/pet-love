@@ -2,11 +2,12 @@ import { Form, Formik } from "formik";
 import Input from "../../../shared/Input";
 import { loginSchema } from "../../../utils/loginSchema";
 import { useState } from "react";
+import Button from "../../../shared/Button";
 
-interface LoginFormProps {}
-
-const LoginForm = ({}: LoginFormProps) => {
+const LoginForm = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  const toggleVisible = () => setIsVisible((prev) => !prev);
 
   const initialValues = {
     email: "",
@@ -23,23 +24,24 @@ const LoginForm = ({}: LoginFormProps) => {
       onSubmit={handleSubmit}
       validationSchema={loginSchema}
     >
-      <Form className="flex flex-col gap-4">
-        <Input name="email" placeholder="Email" styles={""} type="text" />
-        <Input
-          name="password"
-          placeholder="Password"
-          type={isVisible ? "text" : "password"}
-        />
-        <button
-          type="button"
-          onClick={() => setIsVisible((prev) => !prev)}
-          className="text-sm underline text-blue-500"
-        >
-          {isVisible ? "Hide Password" : "Show Password"}
-        </button>
+      <Form className="flex flex-col gap-[10px] w-[295px]">
+        <Input name="email" placeholder="Email" type="text" />
+        <div className="relative">
+          <Input
+            name="password"
+            placeholder="Password"
+            type={isVisible ? "text" : "password"}
+            twoIcons
+          />
+          <Button
+            isVisible={isVisible}
+            toggleVisibility={toggleVisible}
+            className="text-blue-500"
+          />
+        </div>
         <button
           type="submit"
-          className="bg-[#f6b83d] text-white py-2 px-4 rounded-[30px]"
+          className="bg-[#f6b83d] text-white uppercase h-[42px] rounded-[30px]"
         >
           Log In
         </button>

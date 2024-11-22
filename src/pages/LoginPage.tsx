@@ -9,8 +9,8 @@ const LoginPage = () => {
           <img src="/img/mobile/dog.png" />
         </div>
         <div>
-          <Title>Log in</Title>
-          <p>
+          <Title style="mb-[12px]">Log in</Title>
+          <p className="mb-[24px]">
             Welcome! Please enter your credentials to login to the platform:
           </p>
           <LoginForm />
