@@ -36,6 +36,13 @@ const RegistrationForm = () => {
             twoIcons
           />
           <Button isVisible={isVisible} toggleVisibility={toggleVisible} />
+          <Input
+            name="password"
+            placeholder="Password"
+            type={isVisible ? "text" : "password"}
+            twoIcons
+          />
+          <Button isVisible={isVisible} toggleVisibility={toggleVisible} />
         </div>
         <button
           type="submit"
