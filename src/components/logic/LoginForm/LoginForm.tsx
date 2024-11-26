@@ -14,8 +14,12 @@ const LoginForm = () => {
     password: "",
   };
 
-  const handleSubmit = (values: typeof initialValues) => {
+  const handleSubmit = (
+    values: typeof initialValues,
+    { resetForm }: { resetForm: () => void }
+  ) => {
     console.log("Submitted values:", values);
+    resetForm();
   };
 
   return (
@@ -37,7 +41,7 @@ const LoginForm = () => {
         </div>
         <button
           type="submit"
-          className="bg-[#f6b83d] text-white uppercase h-[42px] rounded-[30px] mb-[12px]"
+          className="bg-[#f6b83d] text-white uppercase h-[42px] rounded-[30px] mt-[24px] mb-[12px]"
         >
           Log In
         </button>

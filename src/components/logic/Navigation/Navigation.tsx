@@ -1,9 +1,8 @@
 import { NavLink } from "react-router-dom";
 import AuthNav from "../AuthNav/AuthNav";
 import { NavigationProps } from "./Navigation.types";
-
-import sprite from "/img/symbol-defs.svg";
 import css from "./NavigationStyles";
+import Icon from "../../../shared/Icon";
 
 const Navigation = ({ isOpen, setIsOpen, location }: NavigationProps) => {
   const handleNavClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -23,15 +22,12 @@ const Navigation = ({ isOpen, setIsOpen, location }: NavigationProps) => {
     >
       <div className="flex justify-end items-start">
         <button onClick={handleClose} type="button">
-          <svg
-            className={`${
-              location === "/" ? "stroke-[#262626]" : "stroke-white"
-            }`}
-            width={32}
-            height={32}
-          >
-            <use xlinkHref={`${sprite}#icon-close`} />
-          </svg>
+          <Icon
+            id="icon-close"
+            stroke={location === "/" ? "stroke-[#262626]" : "stroke-white"}
+            width={"32px"}
+            height={"32px"}
+          />
         </button>
       </div>
       <div className={`${css.navigationWrap}`}>

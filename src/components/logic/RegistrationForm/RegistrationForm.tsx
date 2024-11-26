@@ -13,10 +13,15 @@ const RegistrationForm = () => {
     name: "",
     email: "",
     password: "",
+    confirmPassword: "",
   };
 
-  const handleSubmit = (values: typeof initialValues) => {
+  const handleSubmit = (
+    values: typeof initialValues,
+    { resetForm }: { resetForm: () => void }
+  ) => {
     console.log("Submitted values:", values);
+    resetForm(); // Обновляем initialValues
   };
 
   return (
@@ -36,9 +41,11 @@ const RegistrationForm = () => {
             twoIcons
           />
           <Button isVisible={isVisible} toggleVisibility={toggleVisible} />
+        </div>
+        <div className="relative">
           <Input
-            name="password"
-            placeholder="Password"
+            name="confirmPassword"
+            placeholder="Confirm password"
             type={isVisible ? "text" : "password"}
             twoIcons
           />
@@ -46,7 +53,7 @@ const RegistrationForm = () => {
         </div>
         <button
           type="submit"
-          className="bg-[#f6b83d] text-white uppercase h-[42px] rounded-[30px] mb-[12px]"
+          className="bg-[#f6b83d] text-white uppercase h-[42px] rounded-[30px] mt-[24px] mb-[12px]"
         >
           Registration
         </button>

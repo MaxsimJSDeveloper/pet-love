@@ -14,4 +14,7 @@ export const registrationSchema = Yup.object().shape({
     .email("Please enter a valid email address")
     .required("Required"),
   password: Yup.string().min(8, "Too Short!").required("Required"),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password")], "Passwords must match")
+    .required("Required"),
 });

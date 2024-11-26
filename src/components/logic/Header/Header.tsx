@@ -1,9 +1,9 @@
 import Navigation from "../Navigation/Navigation";
-import sprite from "/img/symbol-defs.svg";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Logo from "../../ui/Logo/Logo";
 import css from "./HeaderStyles";
+import Icon from "../../../shared/Icon";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -46,15 +46,14 @@ const Header = () => {
         }}
         className="bg-transparent border-none text-xl p-2"
       >
-        <svg
-          className={
+        <Icon
+          id="icon-burger"
+          stroke={
             location.pathname === "/" ? "stroke-white" : "stroke-[#262626]"
           }
-          width={23}
-          height={23}
-        >
-          <use xlinkHref={`${sprite}#icon-burger`} />
-        </svg>
+          width={"23px"}
+          height={"23px"}
+        />
       </button>
 
       <Navigation
