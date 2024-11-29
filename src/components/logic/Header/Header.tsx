@@ -2,7 +2,7 @@ import Navigation from "../Navigation/Navigation";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Logo from "../../ui/Logo/Logo";
-import css from "./HeaderStyles";
+// import css from "./HeaderStyles";
 import Icon from "../../../shared/Icon";
 
 const Header = () => {
@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <header
-      className={`${css.header} ${
+      className={`flex justify-between items-center relative mx-auto z-50 md:w-[636px] ${
         location.pathname === "/" ? "px-[16px]" : "px-0"
       }`}
     >

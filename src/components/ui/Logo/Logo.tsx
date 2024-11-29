@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { LogoProps } from "./Logo.types.ts";
 
-import sprite from "/img/symbol-defs.svg";
 import css from "./LogoStyles.ts";
+import Icon from "../../../shared/Icon.tsx";
 
 export const Logo = ({ location }: LogoProps) => {
   return (
@@ -12,15 +12,21 @@ export const Logo = ({ location }: LogoProps) => {
           location === "/" ? "text-white" : "text-[#262626]"
         }`}
       >
-        <p>petl</p>
-        <svg
-          className={location === "/" ? "fill-white" : "fill-[#F6B83D]"}
-          width={23}
-          height={23}
-        >
-          <use xlinkHref={`${sprite}#icon-logo`} />
-        </svg>
-        <p>ve</p>
+        <p className="md:text-[28px]">petl</p>
+        <div>
+          <Icon
+            id="icon-logo"
+            className={
+              location === "/"
+                ? "fill-white stroke-white"
+                : "fill-[#F6B83D] stroke-[#F6B83D]"
+            }
+            width="23px"
+            height="23px"
+          />
+        </div>
+
+        <p className="md:text-[28px]">ve</p>
       </div>
     </NavLink>
   );
