@@ -1,8 +1,13 @@
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../redux/store";
 import { getKeyword, resetPage } from "../redux/news/slice";
+import Icon from "./Icon";
 
-const SearchField = () => {
+interface SearchFieldProps {
+  styles?: string;
+}
+
+const SearchField = ({ styles }: SearchFieldProps) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,17 +21,19 @@ const SearchField = () => {
       <input
         name="search"
         placeholder="Search"
-        className="w-[335px] h-[42px] p-[12px] border-[1px] input-border-color relative rounded-[30px]"
+        className={`${styles} w-full h-full p-[12px] border-[1px] input-border-color rounded-[30px]`}
         onChange={handleInputChange}
       />
-      <button type="submit" className="w-[18px] h-[18px]">
-        <svg
-          className="fill-white stroke-[#262626] absolute top-[19%] right-[3%]"
-          width={18}
-          height={18}
-        >
-          <use xlinkHref={`/img/symbol-defs.svg#icon-search`} />
-        </svg>
+      <button
+        type="submit"
+        className="absolute top-1/2 -translate-y-1/2 right-[10px] w-[18px] h-[18px] pointer-events-auto"
+      >
+        <Icon
+          id="icon-search"
+          className="fill-white stroke-[#262626]"
+          width="18px"
+          height="18px"
+        />
       </button>
     </form>
   );

@@ -21,6 +21,8 @@ export const Logo = ({ location }: LogoProps) => {
                 ? "fill-white stroke-white"
                 : "fill-[#F6B83D] stroke-[#F6B83D]"
             }
+            fill={location === "/" ? "#fff" : "#F6B83D"}
+            stroke={location === "/" ? "#fff" : "#F6B83D"}
             width="23px"
             height="23px"
           />
