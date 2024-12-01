@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 
 import Button from "@shared/Button";
-import { registrationSchema } from "../utils/validation";
+import { registrationSchema } from "../../../utils/validation";
 import { useState } from "react";
 import Input from "@shared/Input";
 
@@ -31,7 +31,7 @@ const RegistrationForm = () => {
       onSubmit={handleSubmit}
       validationSchema={registrationSchema}
     >
-      <Form className="flex flex-col gap-[10px] w-[295px]">
+      <Form className="flex flex-col gap-[10px]">
         <Input name="name" placeholder="Name" type="text" />
         <Input name="email" placeholder="Email" type="text" />
         <div className="relative">

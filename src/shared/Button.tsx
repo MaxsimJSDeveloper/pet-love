@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
+import Icon from "./Icon";
 
 interface ButtonProps
   extends DetailedHTMLProps<
@@ -17,13 +18,12 @@ const Button = ({ isVisible, toggleVisibility, ...rest }: ButtonProps) => {
       className="absolute top-[35%] right-[3%]"
       {...rest}
     >
-      <svg className="fill-white stroke-[#262626]" width={18} height={18}>
-        <use
-          xlinkHref={`/img/symbol-defs.svg#${
-            isVisible ? "icon-eye" : "icon-eye-off"
-          }`}
-        />
-      </svg>
+      <Icon
+        id={isVisible ? "icon-eye" : "icon-eye-off"}
+        fill="#F6B83D"
+        width={"18px"}
+        height={"18px"}
+      />
     </button>
   );
 };
