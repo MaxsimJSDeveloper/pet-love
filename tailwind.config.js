@@ -11,6 +11,7 @@ export default {
         "input-border-color": "rgba(38, 38, 38, 0.15)",
         "link-border-color": "rgba(255, 255, 255, 0.5)",
         "date-color": "rgba(38, 38, 38, 0.5)",
+        "button-border-color": "rgba(38, 38, 38, 0.05);",
       },
     },
   },
