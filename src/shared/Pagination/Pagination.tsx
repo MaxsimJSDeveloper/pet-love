@@ -1,16 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch } from "../../../redux/store";
-import { incrementPage } from "../../../redux/news/slice";
+import { AppDispatch } from "@redux/store";
+import { incrementPage } from "@redux/news/slice";
 import {
   selectKeywords,
   selectPerPage,
   selectTotalPages,
   selectCurrentPage,
-} from "../../../redux/news/selectors";
-import { fetchNews } from "../../../redux/news/operations";
-import Icon from "../../../shared/Icon";
-import ReactPaginate from "./ReactPaginate/ReactPaginate";
+} from "@redux/news/selectors";
+
 import css from "./PaginationStyles";
+import Icon from "@shared/Icon";
+import CustomReactPaginate from "./ReactPaginate/ReactPaginate";
+import { fetchNews } from "@redux/news/operations";
 
 const Pagination = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -59,7 +60,7 @@ const Pagination = () => {
           />
         </div>
       </button>
-      <ReactPaginate
+      <CustomReactPaginate
         handlePageChange={handlePageChange}
         totalPages={totalPages}
         currentPage={currentPage}
@@ -71,14 +72,12 @@ const Pagination = () => {
         <div className="flex relative">
           <Icon
             id="icon-arrow-right"
-            stroke="none"
             className={`${
               isNextDisabled ? "fill-date-color" : "fill-[#262626]"
             }`}
           />
           <Icon
             id="icon-arrow-right"
-            stroke="none"
             className={`absolute left-2 ${
               isNextDisabled ? "fill-date-color" : "fill-[#262626]"
             }`}

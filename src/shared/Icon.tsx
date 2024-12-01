@@ -14,8 +14,8 @@ const Icon = ({
   width = "24px",
   height = "24px",
   className = "",
-  fill = "fill-transparent",
-  stroke = "stroke-black",
+  fill = "",
+  stroke = "",
 }: IconProps) => {
   return (
     <svg

@@ -1,8 +1,8 @@
 import { Form, Formik } from "formik";
-import Input from "../../../shared/Input";
-import { loginSchema } from "../../../utils/validation";
 import { useState } from "react";
-import Button from "../../../shared/Button";
+import { loginSchema } from "@utils/validation";
+import Button from "@shared/Button";
+import Input from "@shared/Input";
 
 const LoginForm = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);

@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { LogoProps } from "./Logo.types.ts";
 
-import css from "./LogoStyles.ts";
-import Icon from "../../../shared/Icon.tsx";
+import css from "./LogoStyles";
+import { LogoProps } from "./Logo.types";
+import Icon from "@src/shared/Icon";
 
 export const Logo = ({ location }: LogoProps) => {
   return (

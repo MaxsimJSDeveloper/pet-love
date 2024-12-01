@@ -1,6 +1,7 @@
 import ReactPaginate from "react-paginate";
-import Icon from "../../../../shared/Icon";
+
 import css from "../PaginationStyles";
+import Icon from "@src/shared/Icon";
 
 interface CustomReactPaginateProps {
   handlePageChange: (selectedItem: { selected: number }) => void;

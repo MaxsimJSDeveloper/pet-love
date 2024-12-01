@@ -1,8 +1,9 @@
 import { Form, Formik } from "formik";
-import Input from "../../../shared/Input";
-import Button from "../../../shared/Button";
-import { registrationSchema } from "../../../utils/validation";
+
+import Button from "@shared/Button";
+import { registrationSchema } from "../utils/validation";
 import { useState } from "react";
+import Input from "@shared/Input";
 
 const RegistrationForm = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -21,7 +22,7 @@ const RegistrationForm = () => {
     { resetForm }: { resetForm: () => void }
   ) => {
     console.log("Submitted values:", values);
-    resetForm(); // Обновляем initialValues
+    resetForm();
   };
 
   return (

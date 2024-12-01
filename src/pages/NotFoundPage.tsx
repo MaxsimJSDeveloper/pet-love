@@ -1,35 +1,22 @@
-import { useState } from "react";
-import Modal from "../shared/Modal";
+import NotFound from "@src/components/ui/Error/NotFound";
+import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
-    <div>
-      <button
-        className="px-4 py-2 bg-blue-500 text-white rounded"
-        onClick={toggleModal}
-      >
-        Open Modal
-      </button>
-
-      {isOpen && (
-        <Modal onClose={toggleModal}>
-          <h2 className="text-xl font-semibold mb-4">This is a modal!</h2>
-          <p className="mb-4">You can put your modal content here.</p>
-          <button
-            className="px-4 py-2 bg-red-500 text-white rounded"
-            onClick={toggleModal}
-          >
-            Close
-          </button>
-        </Modal>
-      )}
-    </div>
+    <section className="m-auto bg-[#f6b83d] h-[100vh]">
+      <div className=" bg-[#F6B83D] rounded-[60px] flex flex-col items-center justify-center py-[249px] sm:py-[109px]">
+        <NotFound />
+        <p className="text-white font-bold sm:text-2xl leading-7 tracking-[-0.03em] mt-10">
+          Ooops! This page not found :(
+        </p>
+        <Link
+          to="/"
+          className="bg-[#FFF4DF] text-[#f6b83d] font-bold text-sm sm:text-base py-3 sm:py-[14px] px-[30px] rounded-[30px] mt-5"
+        >
+          To home page
+        </Link>
+      </div>
+    </section>
   );
 };
 export default NotFoundPage;

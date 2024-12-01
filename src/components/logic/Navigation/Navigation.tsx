@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import AuthNav from "../AuthNav/AuthNav";
 import { NavigationProps } from "./Navigation.types";
 import css from "./NavigationStyles";
-import Icon from "../../../shared/Icon";
+import Icon from "@src/shared/Icon";
 
 const Navigation = ({ isOpen, setIsOpen, location }: NavigationProps) => {
   const handleNavClick = (e: React.MouseEvent<HTMLDivElement>) => {

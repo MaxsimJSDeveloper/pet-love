@@ -1,3 +1,5 @@
+import HomeImage from "@components/ui/HomeImage/HomeImage";
+
 const HomePage = () => {
   return (
     <div className="flex flex-col absolute top-2">
@@ -12,13 +14,7 @@ const HomePage = () => {
           life with immeasurable joy and tenderness.
         </p>
       </div>
-      <div>
-        <img
-          src="/img/mobile/home@2x.png"
-          alt="people with dog"
-          className="w-[335px] md:w-[704px]"
-        />
-      </div>
+      <HomeImage />
     </div>
   );
 };

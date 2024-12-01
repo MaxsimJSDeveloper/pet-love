@@ -1,9 +1,9 @@
 import Navigation from "../Navigation/Navigation";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Logo from "../../ui/Logo/Logo";
 // import css from "./HeaderStyles";
-import Icon from "../../../shared/Icon";
+import Icon from "@shared/Icon";
+import Logo from "@components/ui/Logo/Logo";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

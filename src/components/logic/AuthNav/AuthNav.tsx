@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
-import css from "./AuthNavStyles";
 import { AuthNavProps } from "./AuthNav.types";
+
+import css from "./AuthNavStyles";
 
 const AuthNav = ({ location }: AuthNavProps) => {
   return (
