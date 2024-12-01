@@ -1,7 +1,7 @@
 import Navigation from "../Navigation/Navigation";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-// import css from "./HeaderStyles";
+
 import Icon from "@shared/Icon";
 import Logo from "@components/ui/Logo/Logo";
 
