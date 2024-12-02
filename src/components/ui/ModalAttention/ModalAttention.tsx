@@ -14,7 +14,7 @@ const ModalAttention = () => {
 
   return (
     <>
-      <button onClick={handleSetIsOpen}>open</button>
+      <button onClick={handleSetIsOpen}>In process...</button>
       {isOpen && (
         <Modal onClose={handleSetIsOpen}>
           <div>kkkk</div>

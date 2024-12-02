@@ -1,23 +1,30 @@
+import { useState, useEffect, useCallback } from "react";
 import Navigation from "../Navigation/Navigation";
 import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
-
 import Icon from "@shared/Icon";
 import Logo from "@components/ui/Logo/Logo";
+import { useSelector } from "react-redux";
+import { selectToken } from "@src/redux/users/selectors";
+import AuthNav from "../AuthNav/AuthNav";
+import Logout from "@src/components/ui/LogoutBtn/LogoutBtn";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
   const location = useLocation();
+
+  const token = useSelector(selectToken);
 
   const toggleNav = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleOutsideClick = () => {
+  // Мемоизируем функцию с помощью useCallback
+  const handleOutsideClick = useCallback(() => {
     if (isOpen) {
       setIsOpen(false);
     }
-  };
+  }, [isOpen]); // Зависимость от isOpen
 
   useEffect(() => {
     document.addEventListener("click", handleOutsideClick);
@@ -25,11 +32,25 @@ const Header = () => {
     return () => {
       document.removeEventListener("click", handleOutsideClick);
     };
-  }, [isOpen]);
+  }, [handleOutsideClick]);
 
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
+
+  // Обновляем ширину экрана при изменении размера
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const isTabletScreen = screenWidth >= 768;
 
   return (
     <header
@@ -38,6 +59,10 @@ const Header = () => {
       }`}
     >
       <Logo location={location.pathname} />
+      {token === null && isTabletScreen && (
+        <AuthNav location={location.pathname} />
+      )}
+      {token != null && isTabletScreen && <Logout />}
 
       <button
         onClick={(e) => {
