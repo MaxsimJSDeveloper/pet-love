@@ -1,3 +1,3 @@
 export interface AuthNavProps {
-  location: string;
+  location?: string;
 }

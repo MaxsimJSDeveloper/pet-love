@@ -13,7 +13,7 @@ const Modal = ({ children, onClose }: PropsModal) => {
       onClick={onClose}
     >
       <div
-        className="bg-white p-6 rounded-lg max-w-lg w-full"
+        className="bg-white p-6 rounded-lg w-[335px] md:w-[480px] flex flex-col items-center"
         onClick={(e) => e.stopPropagation()}
       >
         {children}
