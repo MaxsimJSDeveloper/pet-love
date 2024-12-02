@@ -18,9 +18,14 @@ const Input = ({ placeholder, twoIcons, type, name }: InputProps) => {
           {...field}
           placeholder={placeholder}
           className={`w-full min-h-[42px] p-[12px] rounded-[30px] border-[1px] ${
-            meta.touched && meta.error ? "border-[#ef2447]" : "border-[#08aa83]"
+            meta.error
+              ? "border-[#ef2447]"
+              : meta.touched && !meta.error
+              ? "border-[#08aa83]"
+              : "border-input-border-color"
           }`}
           type={type}
+          autoComplete={name}
         />
 
         {/* Иконки для подтверждения или ошибки */}

@@ -1,5 +1,4 @@
 import ReactPaginate from "react-paginate";
-
 import css from "../PaginationStyles";
 import Icon from "@src/shared/Icon";
 
@@ -18,6 +17,10 @@ const CustomReactPaginate = ({
   isNextDisabled,
   isPreviousDisabled,
 }: CustomReactPaginateProps) => {
+  if (totalPages <= 0) {
+    return null;
+  }
+
   return (
     <ReactPaginate
       breakLabel="..."
@@ -39,7 +42,7 @@ const CustomReactPaginate = ({
           className={isPreviousDisabled ? "fill-date-color" : "fill-[#262626]"}
         />
       }
-      forcePage={currentPage - 1}
+      forcePage={currentPage > 0 ? currentPage - 1 : 0}
       renderOnZeroPageCount={null}
       containerClassName="flex items-center justify-center gap-[10px]"
       pageClassName="flex"

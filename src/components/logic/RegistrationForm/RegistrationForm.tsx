@@ -4,11 +4,17 @@ import Button from "@shared/Button";
 import { registrationSchema } from "../../../utils/validation";
 import { useState } from "react";
 import Input from "@shared/Input";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "@src/redux/store";
+import { signUp } from "@src/redux/users/operation";
+import { selectToken } from "@src/redux/users/selectors";
 
 const RegistrationForm = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const toggleVisible = () => setIsVisible((prev) => !prev);
+
+  const dispatch = useDispatch<AppDispatch>();
 
   const initialValues = {
     name: "",
@@ -23,7 +29,10 @@ const RegistrationForm = () => {
   ) => {
     console.log("Submitted values:", values);
     resetForm();
+    dispatch(signUp({ ...values }));
   };
+
+  console.log(useSelector(selectToken));
 
   return (
     <Formik

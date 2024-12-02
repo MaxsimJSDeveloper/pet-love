@@ -3,11 +3,17 @@ import { useState } from "react";
 import { loginSchema } from "@utils/validation";
 import Button from "@shared/Button";
 import Input from "@shared/Input";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "@src/redux/store";
+import { signIn } from "@src/redux/users/operation";
+import { selectToken } from "@src/redux/users/selectors";
 
 const LoginForm = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const toggleVisible = () => setIsVisible((prev) => !prev);
+
+  const dispatch = useDispatch<AppDispatch>();
 
   const initialValues = {
     email: "",
@@ -20,7 +26,10 @@ const LoginForm = () => {
   ) => {
     console.log("Submitted values:", values);
     resetForm();
+    dispatch(signIn({ ...values }));
   };
+
+  console.log(useSelector(selectToken));
 
   return (
     <Formik
