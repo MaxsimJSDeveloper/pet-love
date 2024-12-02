@@ -3,10 +3,9 @@ import { useState } from "react";
 import { loginSchema } from "@utils/validation";
 import Button from "@shared/Button";
 import Input from "@shared/Input";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AppDispatch } from "@src/redux/store";
 import { signIn } from "@src/redux/users/operation";
-import { selectToken } from "@src/redux/users/selectors";
 
 const LoginForm = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -28,8 +27,6 @@ const LoginForm = () => {
     resetForm();
     dispatch(signIn({ ...values }));
   };
-
-  console.log(useSelector(selectToken));
 
   return (
     <Formik

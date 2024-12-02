@@ -17,9 +17,10 @@ import { usersReducer } from "./users/slice";
 const persistConfigUsers = {
   key: "users",
   storage,
-  whitelist: ["token"],
+  whitelist: ["token"], // Сохраняем только токен в хранилище
 };
 
+// Обертка с persistReducer для автоматического восстановления состояния
 const persistedUsersReducer = persistReducer(persistConfigUsers, usersReducer);
 
 export const store = configureStore({

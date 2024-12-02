@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { responseTypes, usersSliceStateTypes } from "./types";
-import { signIn, signUp } from "./operation";
+import { signIn, signOut, signUp } from "./operation";
 
+// Начальное состояние, которое будет заполнено при восстановлении данных через redux-persist
 const initialState: usersSliceStateTypes = {
   user: null,
   token: null,
@@ -52,6 +53,16 @@ const usersSlice = createSlice({
       state.error = null;
     });
     builder.addCase(signUp.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload as string;
+    });
+
+    builder.addCase(signOut.fulfilled, (state) => {
+      state.user = null;
+      state.token = null;
+      state.error = null;
+    });
+    builder.addCase(signOut.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload as string;
     });
