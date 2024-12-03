@@ -34,7 +34,7 @@ const LoginForm = () => {
       onSubmit={handleSubmit}
       validationSchema={loginSchema}
     >
-      <Form className="flex flex-col gap-[10px] w-[295px]">
+      <Form className="flex flex-col gap-[10px]">
         <Input name="email" placeholder="Email" type="text" />
         <div className="relative">
           <Input

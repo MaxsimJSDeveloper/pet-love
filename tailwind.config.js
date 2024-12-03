@@ -13,6 +13,7 @@ export default {
         "date-color": "rgba(38, 38, 38, 0.5)",
         "button-border-color": "rgba(38, 38, 38, 0.05)",
         "alfa-white": "rgba(255, 255, 255, 0.1)",
+        "dark-opacity": "rgba(38, 38, 38, 0.8)",
       },
     },
   },
