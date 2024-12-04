@@ -16,7 +16,7 @@ const RegisterPosBlock = () => {
         </div>
         <p className="text-[12px] leading-[117%] tracking-[-0.02em] text-dark-opacity">
           Rich would be the perfect addition to an active family that loves to
-          play and go on walks. I bet he would love having a doggy playmate too!
+          play and go on walks. I bet he would love having a doggy playmate too
         </p>
       </div>
     </div>
