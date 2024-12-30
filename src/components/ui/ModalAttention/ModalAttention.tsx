@@ -17,7 +17,6 @@ const ModalAttention = () => {
 
   return (
     <>
-      <button onClick={handleSetIsOpen}>In process...</button>
       {isOpen && (
         <Modal onClose={handleSetIsOpen}>
           <AttentionModalImgWrap images={attentionImages} />

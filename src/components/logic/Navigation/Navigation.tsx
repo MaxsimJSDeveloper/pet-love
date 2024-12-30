@@ -3,8 +3,13 @@ import AuthNav from "../AuthNav/AuthNav";
 import { NavigationProps } from "./Navigation.types";
 import css from "./NavigationStyles";
 import Icon from "@src/shared/Icon";
+import { useSelector } from "react-redux";
+import { selectToken } from "@src/redux/users/selectors";
+import Logout from "@src/components/ui/LogoutBtn/LogoutBtn";
 
 const Navigation = ({ isOpen, setIsOpen, location }: NavigationProps) => {
+  const token = useSelector(selectToken);
+
   const handleNavClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
   };
@@ -63,9 +68,13 @@ const Navigation = ({ isOpen, setIsOpen, location }: NavigationProps) => {
         </NavLink>
       </div>
 
-      <div className="mt-auto flex flex-col items-center">
-        <AuthNav location={location} />
-      </div>
+      {token === null ? (
+        <div className="mt-auto flex flex-col items-center">
+          <AuthNav location={location} />
+        </div>
+      ) : (
+        <Logout />
+      )}
     </nav>
   );
 };

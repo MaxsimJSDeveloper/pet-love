@@ -1,5 +1,6 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import ReactDOM from "react-dom";
+import Icon from "./Icon";
 
 interface PropsModal {
   children: ReactNode;
@@ -7,6 +8,20 @@ interface PropsModal {
 }
 
 const Modal = ({ children, onClose }: PropsModal) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
+
   return ReactDOM.createPortal(
     <div
       className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50"
@@ -16,6 +31,14 @@ const Modal = ({ children, onClose }: PropsModal) => {
         className="bg-white p-6 rounded-lg w-[335px] md:w-[480px] flex flex-col items-center"
         onClick={(e) => e.stopPropagation()}
       >
+        <button className="ml-auto" onClick={onClose}>
+          <Icon
+            stroke="stroke-[#262626]"
+            id="icon-close"
+            width="14px"
+            height="14px"
+          />
+        </button>
         {children}
       </div>
     </div>,

@@ -5,9 +5,10 @@ import Icon from "./Icon";
 
 interface SearchFieldProps {
   styles?: string;
+  placeholder?: string;
 }
 
-const SearchField = ({ styles }: SearchFieldProps) => {
+const SearchField = ({ styles, placeholder = "Search" }: SearchFieldProps) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,8 +21,8 @@ const SearchField = ({ styles }: SearchFieldProps) => {
     <form className="relative">
       <input
         name="search"
-        placeholder="Search"
-        className={`${styles} w-full h-full p-[12px] border-[1px] input-border-color rounded-[30px]`}
+        placeholder={placeholder}
+        className={`${styles} h-[42px] p-[12px] border-[1px] input-border-color rounded-[30px]`}
         onChange={handleInputChange}
       />
       <button
