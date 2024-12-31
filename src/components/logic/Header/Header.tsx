@@ -7,10 +7,10 @@ import { useSelector } from "react-redux";
 import { selectToken } from "@src/redux/users/selectors";
 import AuthNav from "../AuthNav/AuthNav";
 import Logout from "@src/components/ui/LogoutBtn/LogoutBtn";
+import useScreenWidth from "@src/hooks/useScreenWidth";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
   const location = useLocation();
 
   const token = useSelector(selectToken);
@@ -38,18 +38,7 @@ const Header = () => {
     setIsOpen(false);
   }, [location]);
 
-  // Обновляем ширину экрана при изменении размера
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
+  const screenWidth = useScreenWidth();
   const isTabletScreen = screenWidth >= 768;
 
   return (

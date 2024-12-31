@@ -5,6 +5,8 @@ import {
   typeOptions,
 } from "./selectorsOptionsData";
 import SearchField from "@src/shared/SearchField";
+import useScreenWidth from "@src/hooks/useScreenWidth";
+import RadioBtn from "@src/shared/RadioBtn";
 
 interface Option {
   value: string;
@@ -16,33 +18,50 @@ const NoticesFilters = () => {
     console.log("Selected:", option);
   };
 
+  const screenWidth = useScreenWidth();
+  const isTabletScreen = screenWidth >= 768;
+
   return (
-    <div className="grid grid-cols-2 gap-4 grid-flow-row">
-      <SearchField styles="col-span-2" />
+    <div className="bg-[#FFF4DF] rounded-[30px] mt-[40px] px-[20px] md:px-[32px]">
+      <div className="flex flex-wrap gap-x-[8px] gap-y-[12px] py-[20px] md:gap-[16px] md:pt-[40px] md:pb-[20px]">
+        <SearchField styles="w-[295px] border-[#FFF4DF] hover:border hover:border-[#F6B83D] md:w-[265px]" />
 
-      <ReactSelect
-        name="category"
-        options={categoryOptions}
-        placeholder="Category"
-        onChange={handleChange}
-      />
+        <ReactSelect
+          name="category"
+          width={`${isTabletScreen ? "170px" : "143px"}`}
+          options={categoryOptions}
+          placeholder="Category"
+          onChange={handleChange}
+        />
 
-      <ReactSelect
-        name="gender"
-        options={genderOptions}
-        placeholder="By gender"
-        onChange={handleChange}
-      />
+        <ReactSelect
+          name="gender"
+          width={`${isTabletScreen ? "170px" : "143px"}`}
+          options={genderOptions}
+          placeholder="By gender"
+          onChange={handleChange}
+        />
 
-      <ReactSelect
-        name="type"
-        options={typeOptions}
-        placeholder="By type"
-        onChange={handleChange}
-      />
+        <ReactSelect
+          name="type"
+          width={`${isTabletScreen ? "190px" : "295px"}`}
+          options={typeOptions}
+          placeholder="By type"
+          onChange={handleChange}
+        />
 
-      {/* Оставшийся SearchField для поиска по локации */}
-      <SearchField placeholder="Location" />
+        <SearchField
+          placeholder="Location"
+          styles="w-[295px] border-[#FFF4DF] hover:border-[#F6B83D] md:w-[227px]"
+        />
+      </div>
+
+      <div className="flex flex-wrap gap-[10px] py-[20px] border-t-[1px] w-full">
+        <RadioBtn btnName="popular" />
+        <RadioBtn btnName="unpopular" />
+        <RadioBtn btnName="cheap" />
+        <RadioBtn btnName="expensive" />
+      </div>
     </div>
   );
 };

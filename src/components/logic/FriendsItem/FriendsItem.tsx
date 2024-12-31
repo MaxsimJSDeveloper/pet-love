@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { FriendsItemProps } from "./FriendsItem.types";
 
 const FriendsItem = ({ friend }: FriendsItemProps) => {
-  const { title, imageUrl, email, phone, address } = friend;
-
   const [formattedAddress, setFormattedAddress] = useState<string | null>(null);
   const [formattedEmail, setFormattedEmail] = useState<string | null>(null);
   const [formattedPhone, setFormattedPhone] = useState<string | null>(null);
+
+  const { title, imageUrl, email, phone, address } = friend;
 
   useEffect(() => {
     const formatData = () => {

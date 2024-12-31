@@ -55,3 +55,20 @@
     display: block;
   }
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(38, 38, 38, 0.08);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}

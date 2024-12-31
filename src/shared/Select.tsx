@@ -7,6 +7,7 @@ interface Option {
 
 interface ReactSelectProps {
   name: string;
+  width?: string;
   options: Option[];
   placeholder?: string;
   onChange: (selectedOption: Option | null) => void;
@@ -14,6 +15,7 @@ interface ReactSelectProps {
 
 const ReactSelect = ({
   name,
+  width,
   options,
   placeholder,
   onChange,
@@ -29,19 +31,32 @@ const ReactSelect = ({
           ...baseStyles,
           borderRadius: "30px",
           height: "42px",
-          border: "1px solid #d1d5db", // цвет границы (можно настроить)
+          border: "none",
           boxShadow: "none",
+          width: `${width}`,
+          "&:hover": {
+            border: "1px solid #F6B83D",
+          },
         }),
         dropdownIndicator: (baseStyles) => ({
           ...baseStyles,
           color: "#262626",
         }),
         indicatorSeparator: () => ({
-          display: "none", // Скрываем вертикальную риску
+          display: "none",
         }),
         menu: (baseStyles) => ({
           ...baseStyles,
-          borderRadius: "15px", // Если нужно закруглить меню
+          borderRadius: "15px",
+        }),
+        option: (baseStyles, state) => ({
+          ...baseStyles,
+          backgroundColor: "white",
+          color: state.isSelected ? "#f6b83d" : "rgba(38, 38, 38, 0.6)",
+          borderRadius: "15px",
+          "&:hover": {
+            color: "#f6b83d",
+          },
         }),
       }}
     />

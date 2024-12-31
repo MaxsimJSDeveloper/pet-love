@@ -23,7 +23,6 @@ const LoginForm = () => {
     values: typeof initialValues,
     { resetForm }: { resetForm: () => void }
   ) => {
-    console.log("Submitted values:", values);
     resetForm();
     dispatch(signIn({ ...values }));
   };

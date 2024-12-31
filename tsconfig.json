@@ -22,7 +22,8 @@
       "@redux/*": ["src/redux/*"],
       "@assets/*": ["src/assets/*"],
       "@utils/*": ["src/utils/*"],
-      "@shared/*": ["src/shared/*"]
+      "@shared/*": ["src/shared/*"],
+      "@hooks/*": ["src/hooks/*"]
     },
     "allowImportingTsExtensions": true
   },
