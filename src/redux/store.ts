@@ -13,20 +13,21 @@ import storage from "redux-persist/lib/storage";
 import { newsReducer } from "./news/slice";
 import { friendsReducer } from "./friends/slice";
 import { usersReducer } from "./users/slice";
+import { animalsReducer } from "./animals/slice";
 
 const persistConfigUsers = {
   key: "users",
   storage,
-  whitelist: ["token"], // Сохраняем только токен в хранилище
+  whitelist: ["token"],
 };
 
-// Обертка с persistReducer для автоматического восстановления состояния
 const persistedUsersReducer = persistReducer(persistConfigUsers, usersReducer);
 
 export const store = configureStore({
   reducer: {
     news: newsReducer,
     friends: friendsReducer,
+    animals: animalsReducer,
     users: persistedUsersReducer,
   },
   middleware: (getDefaultMiddleware) =>

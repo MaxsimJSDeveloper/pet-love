@@ -13,7 +13,7 @@ import {
 import { useEffect } from "react";
 import { fetchNews } from "../redux/news/operations";
 import Loader from "../components/ui/Loader";
-import NewsList from "../components/logic/NewsList/NewsList";
+import NewsList from "../components/ui/NewsList/NewsList";
 import Pagination from "../shared/Pagination/Pagination";
 
 const NewsPage = () => {

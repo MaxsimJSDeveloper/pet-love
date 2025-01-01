@@ -1,23 +1,39 @@
 import { selectToken } from "@src/redux/users/selectors";
 import Modal from "@src/shared/Modal";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import AttentionModalImgWrap from "../AttentionModalImgWrap/AttentionModalImgWrap";
 import attentionImages from "@src/assets/img/attentionModal/attentionImages";
 import AuthNav from "@src/components/logic/AuthNav/AuthNav";
+import { selectIsOpen } from "@src/redux/animals/selectors";
+import { closeModal, openModal } from "@src/redux/animals/slice";
+import { AppDispatch } from "@src/redux/store";
+import { useLocation } from "react-router-dom";
 
 const ModalAttention = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(
-    useSelector(selectToken) === null
-  );
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleSetIsOpen = () => {
-    setIsOpen(!isOpen);
+    dispatch(closeModal());
   };
+
+  const isOpen = useSelector(selectIsOpen);
+  const token = useSelector(selectToken);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!token) {
+      dispatch(openModal());
+    }
+  }, [dispatch, token]);
+
+  useEffect(() => {
+    dispatch(closeModal());
+  }, [location, dispatch]);
 
   return (
     <>
-      {isOpen && (
+      {isOpen && !token ? (
         <Modal onClose={handleSetIsOpen}>
           <AttentionModalImgWrap images={attentionImages} />
           <h2 className="text-[20px] font-bold text-[#f6b83d] leading-[100%] tracking-[-0.03em] mb-[20px]">
@@ -31,7 +47,7 @@ const ModalAttention = () => {
           </p>
           <AuthNav />
         </Modal>
-      )}
+      ) : null}
     </>
   );
 };

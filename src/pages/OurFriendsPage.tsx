@@ -9,7 +9,7 @@ import {
   selectError,
 } from "../redux/friends/selectors";
 import Loader from "../components/ui/Loader";
-import FriendsList from "../components/logic/FriendsList/FriendsList";
+import FriendsList from "../components/ui/FriendsList/FriendsList";
 
 const OurFriendsPage = () => {
   const dispatch = useDispatch<AppDispatch>();
