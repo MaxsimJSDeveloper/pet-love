@@ -15,6 +15,7 @@ import { fetchNews } from "../redux/news/operations";
 import Loader from "../components/ui/Loader";
 import NewsList from "../components/ui/NewsList/NewsList";
 import Pagination from "../shared/Pagination/Pagination";
+import { getKeyword, resetPage } from "@src/redux/news/slice";
 
 const NewsPage = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -34,11 +35,19 @@ const NewsPage = () => {
     }
   }, [currentPage, dispatch, perPage, keyword]);
 
+  const handleSearch = (value: string) => {
+    dispatch(getKeyword(value));
+  };
+
   return (
     <>
       <div className="mb-[24px] md:flex md:justify-between md:mb-[46px] md:mt-[89px]">
         <Title style="mt-[54px] mb-[15px] md:mt-0 md:mb-0">News</Title>
-        <SearchField styles="md:max-w-[230px]  w-full" />
+        <SearchField
+          styles="md:max-w-[230px]  w-full"
+          onSearch={handleSearch}
+          resetPage={() => dispatch(resetPage())}
+        />
       </div>
       {loading && <Loader />}
       {error && <p>Error: {error}</p>}

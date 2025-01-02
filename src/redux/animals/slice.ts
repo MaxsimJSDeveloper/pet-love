@@ -46,6 +46,12 @@ const animalSlice = createSlice({
     closeModal(state) {
       state.isOpen = false;
     },
+    getKeyword(state, action: PayloadAction<string>) {
+      state.filters.keyword = action.payload;
+    },
+    resetPage(state) {
+      state.currentPage = 1;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -63,13 +69,11 @@ const animalSlice = createSlice({
       )
       .addCase(fetchAnimals.rejected, (state, action) => {
         state.isLoading = false;
-        state.error =
-          action.payload instanceof Error
-            ? action.payload.message
-            : "Unknown error occurred";
+        state.error = action.payload ?? action.error.message ?? null;
       });
   },
 });
 
-export const { openModal, closeModal } = animalSlice.actions;
+export const { openModal, closeModal, getKeyword, resetPage } =
+  animalSlice.actions;
 export const animalsReducer = animalSlice.reducer;

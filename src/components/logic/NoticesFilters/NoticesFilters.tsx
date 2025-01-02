@@ -7,6 +7,9 @@ import {
 import SearchField from "@src/shared/SearchField";
 import useScreenWidth from "@src/hooks/useScreenWidth";
 import RadioBtn from "@src/shared/RadioBtn";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@src/redux/store";
+import { getKeyword, resetPage } from "@src/redux/animals/slice";
 
 interface Option {
   value: string;
@@ -14,6 +17,8 @@ interface Option {
 }
 
 const NoticesFilters = () => {
+  const dispatch = useDispatch<AppDispatch>();
+
   const handleChange = (option: Option | null) => {
     console.log("Selected:", option);
   };
@@ -21,10 +26,20 @@ const NoticesFilters = () => {
   const screenWidth = useScreenWidth();
   const isTabletScreen = screenWidth >= 768;
 
+  const handleKeyword = (value: string) => {
+    dispatch(getKeyword(value));
+  };
+
   return (
     <div className="bg-[#FFF4DF] rounded-[30px] my-[40px] px-[20px] md:px-[32px]">
       <div className="flex flex-wrap gap-x-[8px] gap-y-[12px] py-[20px] md:gap-[16px] md:pt-[40px] md:pb-[20px]">
-        <SearchField styles="w-[295px] border-[#FFF4DF] hover:border hover:border-[#F6B83D] md:w-[265px]" />
+        <SearchField
+          styles="w-[295px] border-[#FFF4DF] hover:border hover:border-[#F6B83D] md:w-[265px]"
+          onSearch={handleKeyword}
+          resetPage={() => {
+            dispatch(resetPage());
+          }}
+        />
 
         <ReactSelect
           name="category"
@@ -53,6 +68,10 @@ const NoticesFilters = () => {
         <SearchField
           placeholder="Location"
           styles="w-[295px] border-[#FFF4DF] hover:border-[#F6B83D] md:w-[227px]"
+          onSearch={handleKeyword}
+          resetPage={() => {
+            dispatch(resetPage());
+          }}
         />
       </div>
 

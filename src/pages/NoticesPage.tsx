@@ -7,6 +7,7 @@ import {
   selectAnimals,
   selectError,
   selectIsLoading,
+  selectKeyword,
 } from "@src/redux/animals/selectors";
 import { useEffect } from "react";
 import { fetchAnimals } from "@src/redux/animals/operation";
@@ -21,9 +22,11 @@ const NoticesPage = () => {
   const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
 
+  const keyword = useSelector(selectKeyword);
+
   useEffect(() => {
-    dispatch(fetchAnimals());
-  }, [dispatch]);
+    dispatch(fetchAnimals({ keyword }));
+  }, [dispatch, keyword]);
 
   return (
     <>
@@ -34,7 +37,7 @@ const NoticesPage = () => {
       {animals.length > 0 ? (
         <NoticesList animals={animals} />
       ) : (
-        !isLoading && <p>No news available.</p>
+        !isLoading && <p>No animals available.</p>
       )}
 
       <ModalAttention />

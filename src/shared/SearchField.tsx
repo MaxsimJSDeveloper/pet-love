@@ -1,20 +1,22 @@
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../redux/store";
-import { getKeyword, resetPage } from "../redux/news/slice";
 import Icon from "./Icon";
 
 interface SearchFieldProps {
   styles?: string;
   placeholder?: string;
+  onSearch: (value: string) => void;
+  resetPage: () => void;
 }
 
-const SearchField = ({ styles, placeholder = "Search" }: SearchFieldProps) => {
-  const dispatch = useDispatch<AppDispatch>();
-
+const SearchField = ({
+  styles,
+  placeholder = "Search",
+  onSearch,
+  resetPage,
+}: SearchFieldProps) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value.trim();
-    dispatch(resetPage());
-    dispatch(getKeyword(searchValue));
+    resetPage();
+    onSearch(searchValue);
   };
 
   return (
