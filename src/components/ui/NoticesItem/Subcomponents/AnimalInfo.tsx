@@ -29,7 +29,7 @@ const AnimalInfo = ({
             Birthday
           </p>
           <p className="font-medium text-[12px] text-[#262626] leading-[117%]">
-            {birthday.replace(/-/g, ".")}
+            {birthday ? birthday.replace(/-/g, ".") : "N/A"}
           </p>
         </li>
         <li className="flex flex-col">

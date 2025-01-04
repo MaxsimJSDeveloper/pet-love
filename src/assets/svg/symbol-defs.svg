@@ -91,6 +91,18 @@
                 d="M15.833 4.167l-11.667 11.667M4.166 4.167l11.667 11.667"
             ></path>
         </symbol>
+          <symbol id="icon-cross-white" viewBox="0 0 20 20">
+            <path
+                fill="none"
+                stroke="#fff"
+                style="stroke: var(--color1, #fff);"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-miterlimit="4"
+                stroke-width="1.8182"
+                d="M15.833 4.167l-11.667 11.667M4.166 4.167l11.667 11.667"
+            ></path>
+        </symbol>
         <symbol id="icon-check" viewBox="0 0 20 20">
             <path fill="none" stroke="#08aa83" style="stroke: var(--color2, #08aa83);" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.3636" d="M16.667 5.833l-9.167 9.167-4.167-4.167"></path>
         </symbol>

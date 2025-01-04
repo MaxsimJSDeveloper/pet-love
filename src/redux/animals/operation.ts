@@ -4,9 +4,13 @@ import axios from "axios";
 
 export const fetchAnimals = createAsyncThunk<
   AnimalResponse,
-  { keyword: string; filters: { [key: string]: string } },
+  {
+    keyword: string;
+    filters: { [key: string]: string };
+    sorters: { byPrice: boolean | null; byPopularity: boolean | null };
+  },
   { rejectValue: string }
->("animal/fetchAll", async ({ keyword, filters }, thunkAPI) => {
+>("animal/fetchAll", async ({ keyword, filters, sorters }, thunkAPI) => {
   try {
     const params = new URLSearchParams();
 
@@ -20,6 +24,13 @@ export const fetchAnimals = createAsyncThunk<
         params.append(filter, value);
       }
     });
+
+    if (sorters.byPrice !== null) {
+      params.append("byPrice", sorters.byPrice.toString());
+    }
+    if (sorters.byPopularity !== null) {
+      params.append("byPopularity", sorters.byPopularity.toString());
+    }
 
     const response = await axios.get(`/notices?${params.toString()}`);
     return response.data;

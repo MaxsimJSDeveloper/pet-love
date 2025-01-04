@@ -7,24 +7,48 @@ import {
 import SearchField from "@src/shared/SearchField";
 import useScreenWidth from "@src/hooks/useScreenWidth";
 import RadioBtn from "@src/shared/RadioBtn";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AppDispatch } from "@src/redux/store";
-import { getKeyword, resetPage, updateFilters } from "@src/redux/animals/slice";
-import { selectFilters } from "@src/redux/animals/selectors";
+import {
+  getKeyword,
+  resetPage,
+  sortByPopularity,
+  sortByPrice,
+  updateFilters,
+} from "@src/redux/animals/slice";
 import { Option } from "./NoticesFilters.types";
+import { useCallback } from "react";
 
 const NoticesFilters = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleChange = (option: Option | null) => {
-    if (option) {
-      const { filter, value } = option;
-      dispatch(updateFilters({ filter, value }));
+  const handleChange = useCallback(
+    (option: Option | null) => {
+      if (option) {
+        const { filter, value } = option;
+        dispatch(updateFilters({ filter, value }));
+      }
+    },
+    [dispatch]
+  );
+
+  const handleRadioChange = (value: string) => {
+    const priceMap: Record<string, boolean | null> = {
+      cheap: false,
+      expensive: true,
+    };
+
+    const popularityMap: Record<string, boolean | null> = {
+      unpopular: false,
+      popular: true,
+    };
+
+    if (value in priceMap) {
+      dispatch(sortByPrice(priceMap[value]));
+    } else if (value in popularityMap) {
+      dispatch(sortByPopularity(popularityMap[value]));
     }
   };
-
-  const filters = useSelector(selectFilters);
-  console.log(filters);
 
   const screenWidth = useScreenWidth();
   const isTabletScreen = screenWidth >= 768;
@@ -79,10 +103,22 @@ const NoticesFilters = () => {
       </div>
 
       <div className="flex flex-wrap gap-[10px] py-[20px] border-t-[1px] w-full">
-        <RadioBtn btnName="popular" />
-        <RadioBtn btnName="unpopular" />
-        <RadioBtn btnName="cheap" />
-        <RadioBtn btnName="expensive" />
+        <RadioBtn
+          btnName="popular"
+          onChange={handleRadioChange}
+          type="popularity"
+        />
+        <RadioBtn
+          btnName="unpopular"
+          onChange={handleRadioChange}
+          type="popularity"
+        />
+        <RadioBtn btnName="cheap" onChange={handleRadioChange} type="price" />
+        <RadioBtn
+          btnName="expensive"
+          onChange={handleRadioChange}
+          type="price"
+        />
       </div>
     </div>
   );

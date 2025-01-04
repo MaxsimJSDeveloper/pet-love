@@ -9,6 +9,7 @@ import {
   selectFilters,
   selectIsLoading,
   selectKeyword,
+  selectSorters,
 } from "@src/redux/animals/selectors";
 import { useEffect } from "react";
 import { fetchAnimals } from "@src/redux/animals/operation";
@@ -25,10 +26,11 @@ const NoticesPage = () => {
 
   const keyword = useSelector(selectKeyword);
   const filters = useSelector(selectFilters);
+  const sorters = useSelector(selectSorters);
 
   useEffect(() => {
-    dispatch(fetchAnimals({ keyword, filters }));
-  }, [dispatch, keyword, filters]);
+    dispatch(fetchAnimals({ keyword, filters, sorters }));
+  }, [dispatch, keyword, filters, sorters]);
 
   return (
     <>

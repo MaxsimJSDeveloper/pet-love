@@ -13,6 +13,10 @@ interface AnimalState {
     species: string;
     sex: string;
   };
+  sorters: {
+    byPrice: boolean | null;
+    byPopularity: boolean | null;
+  };
   isLoading: boolean;
   isOpen: boolean;
   error: string | null;
@@ -28,6 +32,10 @@ const initialState: AnimalState = {
     category: "",
     species: "",
     sex: "",
+  },
+  sorters: {
+    byPrice: null,
+    byPopularity: null,
   },
   isLoading: false,
   isOpen: false,
@@ -59,6 +67,12 @@ const animalSlice = createSlice({
         state.filters[filter] = value;
       }
     },
+    sortByPrice(state, action: PayloadAction<boolean | null>) {
+      state.sorters.byPrice = action.payload;
+    },
+    sortByPopularity(state, action: PayloadAction<boolean | null>) {
+      state.sorters.byPopularity = action.payload;
+    },
     resetPage(state) {
       state.currentPage = 1;
     },
@@ -84,6 +98,13 @@ const animalSlice = createSlice({
   },
 });
 
-export const { openModal, closeModal, getKeyword, resetPage, updateFilters } =
-  animalSlice.actions;
+export const {
+  openModal,
+  closeModal,
+  getKeyword,
+  resetPage,
+  updateFilters,
+  sortByPrice,
+  sortByPopularity,
+} = animalSlice.actions;
 export const animalsReducer = animalSlice.reducer;
