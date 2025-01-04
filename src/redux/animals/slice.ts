@@ -7,12 +7,11 @@ interface AnimalState {
   currentPage: number;
   perPage: number;
   totalPages: number;
+  keyword: string;
   filters: {
     category: string;
-    gender: string;
-    type: string;
-    location: string;
-    keyword: string;
+    species: string;
+    sex: string;
   };
   isLoading: boolean;
   isOpen: boolean;
@@ -24,12 +23,11 @@ const initialState: AnimalState = {
   currentPage: 1,
   perPage: 6,
   totalPages: 0,
+  keyword: "",
   filters: {
     category: "",
-    gender: "",
-    type: "",
-    location: "",
-    keyword: "",
+    species: "",
+    sex: "",
   },
   isLoading: false,
   isOpen: false,
@@ -47,7 +45,19 @@ const animalSlice = createSlice({
       state.isOpen = false;
     },
     getKeyword(state, action: PayloadAction<string>) {
-      state.filters.keyword = action.payload;
+      state.keyword = action.payload;
+    },
+    updateFilters(
+      state,
+      action: PayloadAction<{
+        filter: keyof AnimalState["filters"];
+        value: string;
+      }>
+    ) {
+      const { filter, value } = action.payload;
+      if (state.filters[filter] !== value) {
+        state.filters[filter] = value;
+      }
     },
     resetPage(state) {
       state.currentPage = 1;
@@ -74,6 +84,6 @@ const animalSlice = createSlice({
   },
 });
 
-export const { openModal, closeModal, getKeyword, resetPage } =
+export const { openModal, closeModal, getKeyword, resetPage, updateFilters } =
   animalSlice.actions;
 export const animalsReducer = animalSlice.reducer;

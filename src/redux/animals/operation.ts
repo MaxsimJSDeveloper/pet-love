@@ -4,16 +4,24 @@ import axios from "axios";
 
 export const fetchAnimals = createAsyncThunk<
   AnimalResponse,
-  { keyword: string },
+  { keyword: string; filters: { [key: string]: string } },
   { rejectValue: string }
->("animal/fetchAll", async ({ keyword }, thunkAPI) => {
+>("animal/fetchAll", async ({ keyword, filters }, thunkAPI) => {
   try {
     const params = new URLSearchParams();
+
     if (keyword) {
       params.append("keyword", keyword);
     }
 
-    const response = await axios.get(`/notices?${params?.toString()}`);
+    Object.keys(filters).forEach((filter) => {
+      const value = filters[filter];
+      if (value) {
+        params.append(filter, value);
+      }
+    });
+
+    const response = await axios.get(`/notices?${params.toString()}`);
     return response.data;
   } catch (e) {
     if (e instanceof Error) {

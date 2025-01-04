@@ -2,13 +2,13 @@ import Select from "react-select";
 
 interface Option {
   value: string;
-  label: string;
+  filter: "category" | "species" | "sex"; // Убедитесь, что filter ограничен этими значениями
 }
 
 interface ReactSelectProps {
   name: string;
   width?: string;
-  options: Option[];
+  options: Option[]; // Используем тип Option[]
   placeholder?: string;
   onChange: (selectedOption: Option | null) => void;
 }
@@ -26,6 +26,7 @@ const ReactSelect = ({
       options={options}
       placeholder={placeholder}
       onChange={onChange}
+      getOptionLabel={(option) => option.value}
       styles={{
         control: (baseStyles) => ({
           ...baseStyles,

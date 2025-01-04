@@ -6,6 +6,7 @@ import { AppDispatch } from "@src/redux/store";
 import {
   selectAnimals,
   selectError,
+  selectFilters,
   selectIsLoading,
   selectKeyword,
 } from "@src/redux/animals/selectors";
@@ -23,10 +24,11 @@ const NoticesPage = () => {
   const isLoading = useSelector(selectIsLoading);
 
   const keyword = useSelector(selectKeyword);
+  const filters = useSelector(selectFilters);
 
   useEffect(() => {
-    dispatch(fetchAnimals({ keyword }));
-  }, [dispatch, keyword]);
+    dispatch(fetchAnimals({ keyword, filters }));
+  }, [dispatch, keyword, filters]);
 
   return (
     <>

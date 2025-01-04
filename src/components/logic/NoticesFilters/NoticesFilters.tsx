@@ -1,27 +1,30 @@
 import ReactSelect from "@src/shared/Select";
 import {
   categoryOptions,
-  genderOptions,
-  typeOptions,
+  sexOptions,
+  speciesOptions,
 } from "./selectorsOptionsData";
 import SearchField from "@src/shared/SearchField";
 import useScreenWidth from "@src/hooks/useScreenWidth";
 import RadioBtn from "@src/shared/RadioBtn";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "@src/redux/store";
-import { getKeyword, resetPage } from "@src/redux/animals/slice";
-
-interface Option {
-  value: string;
-  label: string;
-}
+import { getKeyword, resetPage, updateFilters } from "@src/redux/animals/slice";
+import { selectFilters } from "@src/redux/animals/selectors";
+import { Option } from "./NoticesFilters.types";
 
 const NoticesFilters = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleChange = (option: Option | null) => {
-    console.log("Selected:", option);
+    if (option) {
+      const { filter, value } = option;
+      dispatch(updateFilters({ filter, value }));
+    }
   };
+
+  const filters = useSelector(selectFilters);
+  console.log(filters);
 
   const screenWidth = useScreenWidth();
   const isTabletScreen = screenWidth >= 768;
@@ -52,7 +55,7 @@ const NoticesFilters = () => {
         <ReactSelect
           name="gender"
           width={`${isTabletScreen ? "170px" : "143px"}`}
-          options={genderOptions}
+          options={sexOptions}
           placeholder="By gender"
           onChange={handleChange}
         />
@@ -60,7 +63,7 @@ const NoticesFilters = () => {
         <ReactSelect
           name="type"
           width={`${isTabletScreen ? "190px" : "295px"}`}
-          options={typeOptions}
+          options={speciesOptions}
           placeholder="By type"
           onChange={handleChange}
         />
