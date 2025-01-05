@@ -1,10 +1,13 @@
 import { AppDispatch } from "@src/redux/store";
 import { signOut } from "@src/redux/users/operation";
 import { selectToken } from "@src/redux/users/selectors";
-
 import { useDispatch, useSelector } from "react-redux";
 
-const Logout = () => {
+interface LogoutProps {
+  style?: string;
+}
+
+const Logout = ({ style }: LogoutProps) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const isLogged = useSelector(selectToken);
@@ -16,7 +19,7 @@ const Logout = () => {
   return (
     isLogged != null && (
       <button
-        className="rounded-[30px] py-[15px] px-[35px] max-w-[136px] bg-[#f6b83d] text-[16px] text-bold uppercase text-white leading-[125%] tracking-[-0.03em] ml-auto"
+        className={`${style} rounded-[30px] py-[15px] px-[35px] max-w-[136px] bg-[#f6b83d] text-[16px] text-bold uppercase text-white leading-[125%] tracking-[-0.03em] ml-auto`}
         onClick={handleLogout}
       >
         Log out

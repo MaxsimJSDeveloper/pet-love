@@ -1,13 +1,21 @@
 import { openModal } from "@src/redux/animals/slice";
 import { AppDispatch } from "@src/redux/store";
+import { selectToken } from "@src/redux/users/selectors";
 import Icon from "@src/shared/Icon";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const ActionButtons = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const token = useSelector(selectToken);
 
   const handleClick = () => {
     dispatch(openModal());
+  };
+
+  const handleLikeClick = () => {
+    if (!token) {
+      dispatch(openModal());
+    }
   };
 
   return (
@@ -18,7 +26,10 @@ const ActionButtons = () => {
       >
         Learn more
       </button>
-      <button className="bg-[#fff4df] flex items-center justify-center rounded-full w-[46px] md:w-[48px]">
+      <button
+        onClick={handleLikeClick}
+        className="bg-[#fff4df] flex items-center justify-center rounded-full w-[46px] md:w-[48px]"
+      >
         <Icon
           id="icon-like"
           className="stroke-[#f6b83d] fill-[#fff4df]"

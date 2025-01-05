@@ -1,13 +1,12 @@
 import { Form, Formik } from "formik";
 
-import Button from "@shared/Button";
+import Button from "@src/shared/ButtonForInput";
 import { registrationSchema } from "../../../utils/validation";
 import { useState } from "react";
 import Input from "@shared/Input";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AppDispatch } from "@src/redux/store";
 import { signUp } from "@src/redux/users/operation";
-import { selectToken } from "@src/redux/users/selectors";
 
 const RegistrationForm = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -27,12 +26,9 @@ const RegistrationForm = () => {
     values: typeof initialValues,
     { resetForm }: { resetForm: () => void }
   ) => {
-    console.log("Submitted values:", values);
     resetForm();
     dispatch(signUp({ ...values }));
   };
-
-  console.log(useSelector(selectToken));
 
   return (
     <Formik

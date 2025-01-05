@@ -1,4 +1,4 @@
-import ModalAttention from "@src/components/ui/ModalAttention/ModalAttention";
+import ModalAttention from "@src/components/logic/ModalAttention/ModalAttention";
 import Title from "../shared/Tittle";
 import NoticesFilters from "@src/components/logic/NoticesFilters/NoticesFilters";
 import { useDispatch, useSelector } from "react-redux";

@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 import Loader from "./components/ui/Loader";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./shared/Layout";
+import PublicRoute from "./shared/PublicRoute";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const NewsPage = lazy(() => import("./pages/NewsPage"));
@@ -20,8 +21,22 @@ function App() {
           <Route path="/news" element={<NewsPage />} />
           <Route path="/notices" element={<NoticesPage />} />
           <Route path="/friends" element={<OurFriendsPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegistrationPage />} />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute>
+                <RegistrationPage />
+              </PublicRoute>
+            }
+          />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

@@ -1,4 +1,4 @@
-import ModalAttention from "@src/components/ui/ModalAttention/ModalAttention";
+import ModalAttention from "@src/components/logic/ModalAttention/ModalAttention";
 import { selectIsOpen } from "@src/redux/animals/selectors";
 import { closeModal } from "@src/redux/animals/slice";
 import { AppDispatch } from "@src/redux/store";

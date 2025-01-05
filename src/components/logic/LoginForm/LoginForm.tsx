@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 import { useState } from "react";
 import { loginSchema } from "@utils/validation";
-import Button from "@shared/Button";
+import Button from "@src/shared/ButtonForInput";
 import Input from "@shared/Input";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@src/redux/store";

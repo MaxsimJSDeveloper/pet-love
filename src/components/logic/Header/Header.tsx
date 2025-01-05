@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useEffect } from "react";
 import Navigation from "../Navigation/Navigation";
 import { useLocation } from "react-router-dom";
 import Icon from "@shared/Icon";
@@ -6,37 +6,21 @@ import Logo from "@components/ui/Logo/Logo";
 import { useSelector } from "react-redux";
 import { selectToken } from "@src/redux/users/selectors";
 import AuthNav from "../AuthNav/AuthNav";
-import Logout from "@src/components/ui/LogoutBtn/LogoutBtn";
 import useScreenWidth from "@src/hooks/useScreenWidth";
+import Logout from "../LogoutBtn/LogoutBtn";
+import useToggle from "@src/hooks/useToggle";
+import useOutsideClick from "@src/hooks/useOutsideClick";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { isOpen, toggle, close } = useToggle(false);
   const location = useLocation();
-
   const token = useSelector(selectToken);
 
-  const toggleNav = () => {
-    setIsOpen(!isOpen);
-  };
-
-  // Мемоизируем функцию с помощью useCallback
-  const handleOutsideClick = useCallback(() => {
-    if (isOpen) {
-      setIsOpen(false);
-    }
-  }, [isOpen]); // Зависимость от isOpen
+  useOutsideClick(close, isOpen);
 
   useEffect(() => {
-    document.addEventListener("click", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("click", handleOutsideClick);
-    };
-  }, [handleOutsideClick]);
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
+    close();
+  }, [location, close]);
 
   const screenWidth = useScreenWidth();
   const isTabletScreen = screenWidth >= 768;
@@ -52,11 +36,10 @@ const Header = () => {
         <AuthNav location={location.pathname} />
       )}
       {token != null && isTabletScreen && <Logout />}
-
       <button
         onClick={(e) => {
           e.stopPropagation();
-          toggleNav();
+          toggle();
         }}
         className="bg-transparent border-none text-xl p-2"
       >
@@ -73,7 +56,7 @@ const Header = () => {
       <Navigation
         location={location.pathname}
         isOpen={isOpen}
-        setIsOpen={setIsOpen}
+        setIsOpen={close}
       />
     </header>
   );

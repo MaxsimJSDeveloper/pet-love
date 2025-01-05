@@ -2,7 +2,7 @@ import { selectToken } from "@src/redux/users/selectors";
 import Modal from "@src/shared/Modal";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import AttentionModalImgWrap from "../AttentionModalImgWrap/AttentionModalImgWrap";
+import AttentionModalImgWrap from "../../ui/AttentionModalImgWrap/AttentionModalImgWrap";
 import attentionImages from "@src/assets/img/attentionModal/attentionImages";
 import AuthNav from "@src/components/logic/AuthNav/AuthNav";
 import { selectIsOpen } from "@src/redux/animals/selectors";

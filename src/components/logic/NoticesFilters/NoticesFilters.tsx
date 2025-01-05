@@ -1,4 +1,4 @@
-import ReactSelect from "@src/shared/Select";
+import ReactSelect from "@src/components/logic/NoticesFilters/filtersElements/Select";
 import {
   categoryOptions,
   sexOptions,
@@ -6,7 +6,6 @@ import {
 } from "./selectorsOptionsData";
 import SearchField from "@src/shared/SearchField";
 import useScreenWidth from "@src/hooks/useScreenWidth";
-import RadioBtn from "@src/shared/RadioBtn";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@src/redux/store";
 import {
@@ -18,6 +17,7 @@ import {
 } from "@src/redux/animals/slice";
 import { Option } from "./NoticesFilters.types";
 import { useCallback } from "react";
+import RadioGroup from "./subComponents/RadioGroup";
 
 const NoticesFilters = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -58,7 +58,7 @@ const NoticesFilters = () => {
   };
 
   return (
-    <div className="bg-[#FFF4DF] rounded-[30px] my-[40px] px-[20px] md:px-[32px]">
+    <section className="bg-[#FFF4DF] rounded-[30px] my-[40px] px-[20px] md:px-[32px]">
       <div className="flex flex-wrap gap-x-[8px] gap-y-[12px] py-[20px] md:gap-[16px] md:pt-[40px] md:pb-[20px]">
         <SearchField
           styles="w-[295px] border-[#FFF4DF] hover:border hover:border-[#F6B83D] md:w-[265px]"
@@ -102,25 +102,16 @@ const NoticesFilters = () => {
         />
       </div>
 
-      <div className="flex flex-wrap gap-[10px] py-[20px] border-t-[1px] w-full">
-        <RadioBtn
-          btnName="popular"
-          onChange={handleRadioChange}
-          type="popularity"
-        />
-        <RadioBtn
-          btnName="unpopular"
-          onChange={handleRadioChange}
-          type="popularity"
-        />
-        <RadioBtn btnName="cheap" onChange={handleRadioChange} type="price" />
-        <RadioBtn
-          btnName="expensive"
-          onChange={handleRadioChange}
-          type="price"
-        />
-      </div>
-    </div>
+      <RadioGroup
+        options={[
+          { btnName: "popular", type: "popularity" },
+          { btnName: "unpopular", type: "popularity" },
+          { btnName: "cheap", type: "price" },
+          { btnName: "expensive", type: "price" },
+        ]}
+        onChange={handleRadioChange}
+      />
+    </section>
   );
 };
 
