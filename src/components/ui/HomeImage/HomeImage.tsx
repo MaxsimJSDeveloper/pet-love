@@ -7,11 +7,11 @@ const HomeImage = () => {
       style={{ position: "relative" }}
     >
       <picture className="w-full h-full">
-        {/* <source
+        <source
           media="(min-width: 1280px)"
           srcSet={`${homeImages.desktop.default} 1x, ${homeImages.desktop["2x"]} 2x, ${homeImages.desktop["3x"]} 3x`}
           type="image/webp"
-        /> */}
+        />
         <source
           media="(min-width: 768px)"
           srcSet={`${homeImages.tablet.default} 1x, ${homeImages.tablet["2x"]} 2x, ${homeImages.tablet["3x"]} 3x`}

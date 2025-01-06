@@ -2,6 +2,7 @@ import Icon from "./Icon";
 
 interface SearchFieldProps {
   styles?: string;
+  iconStyles?: string;
   placeholder?: string;
   onSearch: (value: string) => void;
   resetPage: () => void;
@@ -12,6 +13,7 @@ const SearchField = ({
   placeholder = "Search",
   onSearch,
   resetPage,
+  iconStyles,
 }: SearchFieldProps) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value.trim();
@@ -24,7 +26,7 @@ const SearchField = ({
       <input
         name="search"
         placeholder={placeholder}
-        className={`${styles} h-[42px] p-[12px] border-[1px] input-border-color rounded-[30px]`}
+        className={`h-[42px] p-[12px] border-[1px] input-border-color rounded-[30px] md:h-[48px] ${styles}`}
         onChange={handleInputChange}
       />
       <button
@@ -33,7 +35,7 @@ const SearchField = ({
       >
         <Icon
           id="icon-search"
-          className="fill-white stroke-[#262626]"
+          className={`fill-white stroke-[#262626] ${iconStyles}`}
           width="18px"
           height="18px"
         />

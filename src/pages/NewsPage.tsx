@@ -41,7 +41,7 @@ const NewsPage = () => {
 
   return (
     <>
-      <div className="mb-[24px] md:flex md:justify-between md:mb-[46px] md:mt-[89px]">
+      <div className="mb-[24px] md:flex md:justify-between md:items-center md:mb-[46px] md:mt-[89px]">
         <Title style="mt-[54px] mb-[15px] md:mt-0 md:mb-0">News</Title>
         <SearchField
           styles="md:max-w-[230px]  w-full"
