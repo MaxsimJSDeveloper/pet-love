@@ -1,72 +1,58 @@
 import { NavLink } from "react-router-dom";
-import AuthNav from "../AuthNav/AuthNav";
-import { NavigationProps } from "./Navigation.types";
 import css from "./NavigationStyles";
-import Icon from "@src/shared/Icon";
+import useScreenWidth from "@src/hooks/useScreenWidth";
 
-const Navigation = ({ isOpen, setIsOpen, location }: NavigationProps) => {
-  const handleNavClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-  };
+interface NavigationProps {
+  location: string;
+  wrapper?: string;
+}
 
-  const handleClose = () => {
-    setIsOpen(false);
+const Navigation = ({ location, wrapper }: NavigationProps) => {
+  const screenWidth = useScreenWidth();
+  const isDesktopScreen = screenWidth >= 1280;
+
+  const getLinkClasses = (isActive: boolean, currentLocation: string) => {
+    const baseClass = css.linkClass;
+
+    const textColor =
+      currentLocation === "/"
+        ? isDesktopScreen
+          ? "text-white hover:border-white"
+          : "text-[#262626] hover:border[#F6B83D]"
+        : !isDesktopScreen
+        ? "text-white hover:border-white"
+        : "text-[#262626] hover:border-[#F6B83D]";
+
+    const activeClass = isActive
+      ? isDesktopScreen
+        ? "border-[#F6B83D]"
+        : "border-white"
+      : "";
+
+    return `${baseClass} ${textColor} ${activeClass}`;
   };
 
   return (
-    <nav
-      className={`${isOpen ? css.navigation : "hidden"} ${
-        location === "/" && isOpen ? "bg-white" : ""
-      }`}
-      onClick={handleNavClick}
-    >
-      <div className="flex justify-end items-start">
-        <button onClick={handleClose} type="button">
-          <Icon
-            id="icon-close"
-            stroke={location === "/" ? "stroke-[#262626]" : "stroke-white"}
-            width={"32px"}
-            height={"32px"}
-          />
-        </button>
-      </div>
-      <div className={`${css.navigationWrap}`}>
-        <NavLink
-          className={({ isActive }) =>
-            `${css.linkClass} ${
-              location !== "/" ? "text-white  hover:border-white" : ""
-            } ${isActive ? "border-white" : ""}`
-          }
-          to="/news"
-        >
-          <p className="text-center">News</p>
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            `${css.linkClass} ${
-              location !== "/" ? "text-white  hover:border-white" : ""
-            } ${isActive ? "border-white" : ""}`
-          }
-          to="/notices"
-        >
-          <p className="text-center">Find pet</p>
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            `${css.linkClass} ${
-              location !== "/" ? "text-white hover:border-white" : ""
-            } ${isActive ? "border-white" : ""}`
-          }
-          to="/friends"
-        >
-          <p className="text-center">Our friends</p>
-        </NavLink>
-      </div>
-
-      <div className="mt-auto flex flex-col items-center">
-        <AuthNav location={location} />
-      </div>
-    </nav>
+    <div className={`${css.navigationWrap} ${wrapper}`}>
+      <NavLink
+        className={({ isActive }) => getLinkClasses(isActive, location)}
+        to="/news"
+      >
+        <p className="text-center">News</p>
+      </NavLink>
+      <NavLink
+        className={({ isActive }) => getLinkClasses(isActive, location)}
+        to="/notices"
+      >
+        <p className="text-center">Find pet</p>
+      </NavLink>
+      <NavLink
+        className={({ isActive }) => getLinkClasses(isActive, location)}
+        to="/friends"
+      >
+        <p className="text-center">Our friends</p>
+      </NavLink>
+    </div>
   );
 };
 

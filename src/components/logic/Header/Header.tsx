@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Navigation from "../Navigation/Navigation";
 import { useLocation } from "react-router-dom";
 import Icon from "@shared/Icon";
 import Logo from "@components/ui/Logo/Logo";
@@ -10,6 +9,8 @@ import useScreenWidth from "@src/hooks/useScreenWidth";
 import Logout from "../LogoutBtn/LogoutBtn";
 import useToggle from "@src/hooks/useToggle";
 import useOutsideClick from "@src/hooks/useOutsideClick";
+import NavigationSidebar from "../NavigationSidebar/NavigationSidebar";
+import Navigation from "../Navigation/Navigation";
 
 const Header = () => {
   const { isOpen, toggle, close } = useToggle(false);
@@ -24,40 +25,48 @@ const Header = () => {
 
   const screenWidth = useScreenWidth();
   const isTabletScreen = screenWidth >= 768;
+  const isDesktopScreen = screenWidth >= 1280;
 
   return (
     <header
-      className={`flex justify-between items-center relative mx-auto z-50 md:w-[636px] ${
+      className={`flex justify-between items-center relative mx-auto z-50 md:w-[636px] xl:w-[1152px] ${
         location.pathname === "/" ? "px-[16px]" : "px-0"
       }`}
     >
       <Logo location={location.pathname} />
+      {isDesktopScreen && <Navigation location={location.pathname} />}
+
       {token === null && isTabletScreen && (
         <AuthNav location={location.pathname} />
       )}
       {token != null && isTabletScreen && <Logout />}
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          toggle();
-        }}
-        className="bg-transparent border-none text-xl p-2"
-      >
-        <Icon
-          id="icon-burger"
-          stroke={
-            location.pathname === "/" ? "stroke-white" : "stroke-[#262626]"
-          }
-          width={"23px"}
-          height={"23px"}
-        />
-      </button>
 
-      <Navigation
-        location={location.pathname}
-        isOpen={isOpen}
-        setIsOpen={close}
-      />
+      {!isDesktopScreen && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            toggle();
+          }}
+          className="bg-transparent border-none text-xl p-2"
+        >
+          <Icon
+            id="icon-burger"
+            stroke={
+              location.pathname === "/" ? "stroke-white" : "stroke-[#262626]"
+            }
+            width={"23px"}
+            height={"23px"}
+          />
+        </button>
+      )}
+
+      {!isDesktopScreen && (
+        <NavigationSidebar
+          location={location.pathname}
+          isOpen={isOpen}
+          setIsOpen={close}
+        />
+      )}
     </header>
   );
 };
