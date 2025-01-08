@@ -76,6 +76,9 @@ const animalSlice = createSlice({
     resetPage(state) {
       state.currentPage = 1;
     },
+    incrementPage(state, action: PayloadAction<number>) {
+      state.currentPage = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -106,5 +109,6 @@ export const {
   updateFilters,
   sortByPrice,
   sortByPopularity,
+  incrementPage,
 } = animalSlice.actions;
 export const animalsReducer = animalSlice.reducer;

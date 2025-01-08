@@ -16,9 +16,6 @@ const newsSlice = createSlice({
   name: "news",
   initialState,
   reducers: {
-    decrementPage(state) {
-      state.currentPage -= 1;
-    },
     incrementPage(state, action: PayloadAction<number>) {
       state.currentPage = action.payload;
     },
@@ -51,7 +48,6 @@ const newsSlice = createSlice({
   },
 });
 
-export const { decrementPage, incrementPage, resetPage, getKeyword } =
-  newsSlice.actions;
+export const { incrementPage, resetPage, getKeyword } = newsSlice.actions;
 
 export const newsReducer = newsSlice.reducer;

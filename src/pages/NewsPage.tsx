@@ -9,13 +9,14 @@ import {
   selectKeywords,
   selectNews,
   selectPerPage,
+  selectTotalPages,
 } from "../redux/news/selectors";
 import { useEffect } from "react";
 import { fetchNews } from "../redux/news/operations";
 import Loader from "../components/ui/Loader";
 import NewsList from "../components/ui/NewsList/NewsList";
 import Pagination from "../shared/Pagination/Pagination";
-import { getKeyword, resetPage } from "@src/redux/news/slice";
+import { getKeyword, incrementPage, resetPage } from "@src/redux/news/slice";
 
 const NewsPage = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -26,6 +27,7 @@ const NewsPage = () => {
 
   const currentPage = useSelector(selectCurrentPage);
   const perPage = useSelector(selectPerPage);
+  const totalPages = useSelector(selectTotalPages);
 
   const keyword = useSelector(selectKeywords);
 
@@ -37,6 +39,10 @@ const NewsPage = () => {
 
   const handleSearch = (value: string) => {
     dispatch(getKeyword(value));
+  };
+
+  const handleIncrementPage = (newPage: number) => {
+    dispatch(incrementPage(newPage));
   };
 
   return (
@@ -56,7 +62,11 @@ const NewsPage = () => {
       ) : (
         !loading && <p>No news available.</p>
       )}
-      <Pagination />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        incrementPage={handleIncrementPage}
+      />
     </>
   );
 };

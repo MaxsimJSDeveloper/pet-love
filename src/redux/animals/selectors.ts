@@ -9,3 +9,8 @@ export const selectKeyword = (state: RootState) => state.animals.keyword;
 
 export const selectFilters = (state: RootState) => state.animals.filters;
 export const selectSorters = (state: RootState) => state.animals.sorters;
+
+export const selectTotalPages = (state: RootState) => state.animals.totalPages;
+export const selectPerPage = (state: RootState) => state.animals.perPage;
+export const selectCurrentPage = (state: RootState) =>
+  state.animals.currentPage;
