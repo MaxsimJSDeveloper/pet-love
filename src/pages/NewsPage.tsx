@@ -46,7 +46,7 @@ const NewsPage = () => {
   };
 
   return (
-    <>
+    <section>
       <div className="mb-[24px] md:flex md:justify-between md:items-center md:mb-[46px] md:mt-[89px]">
         <Title style="mt-[54px] mb-[15px] md:mt-0 md:mb-0">News</Title>
         <SearchField
@@ -67,7 +67,7 @@ const NewsPage = () => {
         totalPages={totalPages}
         incrementPage={handleIncrementPage}
       />
-    </>
+    </section>
   );
 };
 

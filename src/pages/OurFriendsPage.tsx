@@ -23,7 +23,7 @@ const OurFriendsPage = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <section>
       <Title style="mb-[40px] mt-[54px] md:text-[54px]">Our friends</Title>
       {isLoading && <Loader />}
       {error && <p>Error: {error}</p>}
@@ -32,7 +32,7 @@ const OurFriendsPage = () => {
       ) : (
         !isLoading && <p>No friends find</p>
       )}
-    </>
+    </section>
   );
 };
 

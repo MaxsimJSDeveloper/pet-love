@@ -46,7 +46,7 @@ const NoticesPage = () => {
   };
 
   return (
-    <>
+    <section>
       <Title>Find your favorite pet</Title>
       <NoticesFilters />
       {isLoading && <Loader />}
@@ -65,7 +65,7 @@ const NoticesPage = () => {
         totalPages={totalPages}
         incrementPage={handleIncrementPage}
       />
-    </>
+    </section>
   );
 };
 

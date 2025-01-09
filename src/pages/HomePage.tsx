@@ -2,7 +2,7 @@ import HomeImage from "@components/ui/HomeImage/HomeImage";
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col absolute top-2">
+    <section className="flex flex-col absolute top-2">
       <div className="w-[335px] h-[390px] bg-[#f6b83d] rounded-[30px] flex flex-col justify-end p-[20px] md:w-[704px] md:rounded-[60px] md:p-[32px] xl:min-w-[1216px]">
         <h1 className="text-[50px] font-bold text-white tracking-[-0.03em] leading-[96%] mb-[20px] md:text-[80px]">
           Take good
@@ -15,7 +15,7 @@ const HomePage = () => {
         </p>
       </div>
       <HomeImage />
-    </div>
+    </section>
   );
 };
 
