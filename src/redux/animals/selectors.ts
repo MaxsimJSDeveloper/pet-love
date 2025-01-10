@@ -14,3 +14,5 @@ export const selectTotalPages = (state: RootState) => state.animals.totalPages;
 export const selectPerPage = (state: RootState) => state.animals.perPage;
 export const selectCurrentPage = (state: RootState) =>
   state.animals.currentPage;
+
+export const selectAnimal = (state: RootState) => state.animals.animal;

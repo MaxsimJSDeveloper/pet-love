@@ -3,6 +3,7 @@ import { NoticesItemProps } from "./NoticesItem.types";
 import AnimalImage from "./Subcomponents/AnimalImage";
 import AnimalInfo from "./Subcomponents/AnimalInfo";
 import ActionButtons from "./Subcomponents/ActionButtons";
+import cutText from "@src/utils/cutText";
 
 const NoticesItem = ({ animal }: NoticesItemProps) => {
   const {
@@ -15,6 +16,8 @@ const NoticesItem = ({ animal }: NoticesItemProps) => {
     sex,
     imgURL,
     popularity,
+    _id,
+    price,
   } = animal;
 
   return (
@@ -29,7 +32,7 @@ const NoticesItem = ({ animal }: NoticesItemProps) => {
         <div className="flex flex-col gap-[16px]">
           <div className="flex justify-between">
             <h2 className="font-bold leading-[125%] text-[#2b2b2a] text-[16px] md:text-[18px]">
-              {title}
+              {cutText(title, 16)}
             </h2>
             <div className="flex gap-[5px]">
               <Icon
@@ -46,10 +49,12 @@ const NoticesItem = ({ animal }: NoticesItemProps) => {
             species={species}
             category={category}
             comment={comment}
+            price={price}
+            withReduction
           />
         </div>
       </div>
-      <ActionButtons />
+      <ActionButtons id={_id} />
     </div>
   );
 };

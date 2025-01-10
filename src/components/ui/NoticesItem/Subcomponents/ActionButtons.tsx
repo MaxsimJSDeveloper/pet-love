@@ -1,15 +1,23 @@
+import { fetchAnimalById } from "@src/redux/animals/operation";
 import { openModal } from "@src/redux/animals/slice";
 import { AppDispatch } from "@src/redux/store";
 import { selectToken } from "@src/redux/users/selectors";
 import Icon from "@src/shared/Icon";
 import { useDispatch, useSelector } from "react-redux";
 
-const ActionButtons = () => {
+interface ActionButtonsProps {
+  id: string;
+}
+
+const ActionButtons = ({ id }: ActionButtonsProps) => {
   const dispatch = useDispatch<AppDispatch>();
   const token = useSelector(selectToken);
 
   const handleClick = () => {
     dispatch(openModal());
+    if (token) {
+      dispatch(fetchAnimalById(id));
+    }
   };
 
   const handleLikeClick = () => {

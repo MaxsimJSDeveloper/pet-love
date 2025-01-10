@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { AnimalResponse } from "./types";
+import { AnimalIdResponse, AnimalResponse } from "./types";
 import axios from "axios";
+import { store } from "../store";
 
 export const fetchAnimals = createAsyncThunk<
   AnimalResponse,
@@ -53,3 +54,27 @@ export const fetchAnimals = createAsyncThunk<
     }
   }
 );
+
+export const fetchAnimalById = createAsyncThunk<
+  AnimalIdResponse,
+  string,
+  { rejectValue: string }
+>("animals/fetchById", async (id, thunkAPI) => {
+  try {
+    const state = store.getState();
+    const token = state.users.token;
+
+    const response = await axios.get(`/notices/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    if (error instanceof Error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+    return thunkAPI.rejectWithValue("Unknown error occurred");
+  }
+});
