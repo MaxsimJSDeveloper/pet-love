@@ -45,7 +45,7 @@ export const signOut = createAsyncThunk<
   { rejectValue: string }
 >("users/signOut", async (_, thunkAPI) => {
   const state = thunkAPI.getState() as { users: usersSliceStateTypes };
-  const token = state.users.token; // Получаем токен из состояния Redux
+  const token = state.users.token;
 
   try {
     const response = await axios.post("/users/signout", null, {

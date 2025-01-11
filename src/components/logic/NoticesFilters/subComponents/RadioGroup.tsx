@@ -1,4 +1,4 @@
-import RadioBtn from "@src/components/logic/NoticesFilters/filtersElements/RadioBtn";
+import RadioBtn from "@components/logic/NoticesFilters/filtersElements/RadioBtn";
 
 const RadioGroup = ({
   options,

@@ -1,8 +1,7 @@
-import ModalAttention from "@src/components/logic/ModalAttention/ModalAttention";
-import Title from "../shared/Tittle";
-import NoticesFilters from "@src/components/logic/NoticesFilters/NoticesFilters";
+import ModalAttention from "@components/logic/ModalAttention/ModalAttention";
+import NoticesFilters from "@components/logic/NoticesFilters/NoticesFilters";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch } from "@src/redux/store";
+import { AppDispatch } from "@redux/store";
 import {
   selectAnimals,
   selectCurrentPage,
@@ -13,14 +12,15 @@ import {
   selectPerPage,
   selectSorters,
   selectTotalPages,
-} from "@src/redux/animals/selectors";
+} from "@redux/animals/selectors";
 import { useEffect } from "react";
-import { fetchAnimals } from "@src/redux/animals/operation";
-import NoticesList from "@src/components/ui/NoticesList/NoticesList";
-import Loader from "@src/components/ui/Loader";
-import ModalNotice from "@src/components/logic/ModalNotice/ModalNotice";
-import Pagination from "@src/shared/Pagination/Pagination";
-import { incrementPage } from "@src/redux/animals/slice";
+import { fetchAnimals } from "@redux/animals/operation";
+import NoticesList from "@components/ui/NoticesList/NoticesList";
+import Loader from "@components/ui/Loader";
+import ModalNotice from "@components/logic/ModalNotice/ModalNotice";
+import Pagination from "@shared/Pagination/Pagination";
+import { incrementPage } from "@redux/animals/slice";
+import Title from "@shared/Tittle";
 
 const NoticesPage = () => {
   const dispatch = useDispatch<AppDispatch>();

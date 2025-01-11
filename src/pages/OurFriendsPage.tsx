@@ -1,15 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
-import Title from "../shared/Tittle";
-import { useEffect } from "react";
-import { fetchFriends } from "../redux/friends/operation";
-import { AppDispatch } from "../redux/store";
+import FriendsList from "@components/ui/FriendsList/FriendsList";
+import Loader from "@components/ui/Loader";
+import { fetchFriends } from "@redux/friends/operation";
 import {
+  selectError,
   selectFriends,
   selectLoading,
-  selectError,
-} from "../redux/friends/selectors";
-import Loader from "../components/ui/Loader";
-import FriendsList from "../components/ui/FriendsList/FriendsList";
+} from "@redux/friends/selectors";
+import { AppDispatch } from "@redux/store";
+import Title from "@shared/Tittle";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const OurFriendsPage = () => {
   const dispatch = useDispatch<AppDispatch>();

@@ -1,7 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
-import SearchField from "../shared/SearchField";
-import Title from "../shared/Tittle";
-import { AppDispatch } from "../redux/store";
+import Loader from "@components/ui/Loader";
+import NewsList from "@components/ui/NewsList/NewsList";
+import { fetchNews } from "@redux/news/operations";
 import {
   selectCurrentPage,
   selectError,
@@ -10,13 +9,14 @@ import {
   selectNews,
   selectPerPage,
   selectTotalPages,
-} from "../redux/news/selectors";
+} from "@redux/news/selectors";
+import { getKeyword, incrementPage, resetPage } from "@redux/news/slice";
+import { AppDispatch } from "@redux/store";
+import Pagination from "@shared/Pagination/Pagination";
+import SearchField from "@shared/SearchField";
+import Title from "@shared/Tittle";
 import { useEffect } from "react";
-import { fetchNews } from "../redux/news/operations";
-import Loader from "../components/ui/Loader";
-import NewsList from "../components/ui/NewsList/NewsList";
-import Pagination from "../shared/Pagination/Pagination";
-import { getKeyword, incrementPage, resetPage } from "@src/redux/news/slice";
+import { useDispatch, useSelector } from "react-redux";
 
 const NewsPage = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -50,7 +50,7 @@ const NewsPage = () => {
       <div className="mb-[24px] md:flex md:justify-between md:items-center md:mb-[46px] md:mt-[89px]">
         <Title style="mt-[54px] mb-[15px] md:mt-0 md:mb-0">News</Title>
         <SearchField
-          styles="md:max-w-[230px]  w-full"
+          styles="md:max-w-[230px] w-full"
           onSearch={handleSearch}
           resetPage={() => dispatch(resetPage())}
         />

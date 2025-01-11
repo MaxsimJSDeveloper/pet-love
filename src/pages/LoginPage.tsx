@@ -1,8 +1,8 @@
-import Title from "../shared/Tittle";
-import LoginForm from "../components/logic/LoginForm/LoginForm";
 import { Link } from "react-router-dom";
-import loginImages from "@src/assets/img/login/loginImages";
-import PetBlock from "@src/components/ui/PetBlock/PetBlock";
+import loginImages from "@assets/img/login/loginImages";
+import PetBlock from "@components/ui/PetBlock/PetBlock";
+import Title from "@shared/Tittle";
+import LoginForm from "@components/logic/LoginForm/LoginForm";
 
 const LoginPage = () => {
   return (

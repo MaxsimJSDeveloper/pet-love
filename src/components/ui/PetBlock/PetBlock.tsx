@@ -1,4 +1,4 @@
-import Icon from "@src/shared/Icon";
+import Icon from "@shared/Icon";
 import { PetBlockProps } from "./PetBlock.types";
 
 const PetBlock = ({ images, className = "", style = {} }: PetBlockProps) => {

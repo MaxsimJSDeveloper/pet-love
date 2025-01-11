@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 import css from "./LogoStyles";
 import { LogoProps } from "./Logo.types";
-import Icon from "@src/shared/Icon";
+import Icon from "@shared/Icon";
 
 export const Logo = ({ location }: LogoProps) => {
   return (

@@ -1,11 +1,11 @@
 import { Form, Formik } from "formik";
 import { useState } from "react";
 import { loginSchema } from "@utils/validation";
-import Button from "@src/shared/ButtonForInput";
+import Button from "@shared/ButtonForInput";
 import Input from "@shared/Input";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "@src/redux/store";
-import { signIn } from "@src/redux/users/operation";
+import { AppDispatch } from "@redux/store";
+import { signIn } from "@redux/users/operation";
 
 const LoginForm = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);

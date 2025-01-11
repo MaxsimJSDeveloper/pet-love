@@ -2,13 +2,13 @@ import Select from "react-select";
 
 interface Option {
   value: string;
-  filter: "category" | "species" | "sex"; // Убедитесь, что filter ограничен этими значениями
+  filter: "category" | "species" | "sex";
 }
 
 interface ReactSelectProps {
   name: string;
   width?: string;
-  options: Option[]; // Используем тип Option[]
+  options: Option[];
   placeholder?: string;
   onChange: (selectedOption: Option | null) => void;
 }

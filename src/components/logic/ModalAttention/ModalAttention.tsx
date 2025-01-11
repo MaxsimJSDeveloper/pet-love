@@ -1,14 +1,15 @@
-import { selectToken } from "@src/redux/users/selectors";
-import Modal from "@src/shared/Modal";
+import { selectToken } from "@redux/users/selectors";
+import Modal from "@shared/Modal";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import AttentionModalImgWrap from "../../ui/AttentionModalImgWrap/AttentionModalImgWrap";
-import attentionImages from "@src/assets/img/attentionModal/attentionImages";
-import AuthNav from "@src/components/logic/AuthNav/AuthNav";
-import { selectIsOpen } from "@src/redux/animals/selectors";
-import { closeModal, openModal } from "@src/redux/animals/slice";
-import { AppDispatch } from "@src/redux/store";
+
+import attentionImages from "@assets/img/attentionModal/attentionImages";
+import AuthNav from "@components/logic/AuthNav/AuthNav";
+import { selectIsOpen } from "@redux/animals/selectors";
+import { closeModal, openModal } from "@redux/animals/slice";
+import { AppDispatch } from "@redux/store";
 import { useLocation } from "react-router-dom";
+import AttentionModalImgWrap from "@components/ui/AttentionModalImgWrap/AttentionModalImgWrap";
 
 const ModalAttention = () => {
   const dispatch = useDispatch<AppDispatch>();

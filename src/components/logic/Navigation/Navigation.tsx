@@ -1,11 +1,7 @@
 import { NavLink } from "react-router-dom";
 import css from "./NavigationStyles";
-import useScreenWidth from "@src/hooks/useScreenWidth";
-
-interface NavigationProps {
-  location: string;
-  wrapper?: string;
-}
+import useScreenWidth from "@hooks/useScreenWidth";
+import { NavigationProps } from "./Navigation.types";
 
 const Navigation = ({ location, wrapper }: NavigationProps) => {
   const screenWidth = useScreenWidth();

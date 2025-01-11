@@ -1,8 +1,9 @@
-import { selectSorters } from "@src/redux/animals/selectors";
+import { selectSorters } from "@redux/animals/selectors";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Icon from "../../../../shared/Icon";
-import { sortByPrice, sortByPopularity } from "@src/redux/animals/slice";
+
+import { sortByPrice, sortByPopularity } from "@redux/animals/slice";
+import Icon from "@shared/Icon";
 
 interface radioBtnProps {
   btnName: string;

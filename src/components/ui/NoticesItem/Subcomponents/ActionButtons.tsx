@@ -1,8 +1,8 @@
-import { fetchAnimalById } from "@src/redux/animals/operation";
-import { openModal } from "@src/redux/animals/slice";
-import { AppDispatch } from "@src/redux/store";
-import { selectToken } from "@src/redux/users/selectors";
-import Icon from "@src/shared/Icon";
+import { fetchAnimalById } from "@redux/animals/operation";
+import { openModal } from "@redux/animals/slice";
+import { AppDispatch } from "@redux/store";
+import { selectToken } from "@redux/users/selectors";
+import Icon from "@shared/Icon";
 import { useDispatch, useSelector } from "react-redux";
 
 interface ActionButtonsProps {

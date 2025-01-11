@@ -1,4 +1,4 @@
-import NotFound from "@src/components/ui/Error/NotFound";
+import NotFound from "@components/ui/Error/NotFound";
 import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {

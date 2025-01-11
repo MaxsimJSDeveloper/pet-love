@@ -1,9 +1,9 @@
-import Icon from "@src/shared/Icon";
+import Icon from "@shared/Icon";
 import { NoticesItemProps } from "./NoticesItem.types";
 import AnimalImage from "./Subcomponents/AnimalImage";
 import AnimalInfo from "./Subcomponents/AnimalInfo";
 import ActionButtons from "./Subcomponents/ActionButtons";
-import cutText from "@src/utils/cutText";
+import cutText from "@utils/cutText";
 
 const NoticesItem = ({ animal }: NoticesItemProps) => {
   const {

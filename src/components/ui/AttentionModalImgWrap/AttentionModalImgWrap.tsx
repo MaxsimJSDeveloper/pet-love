@@ -1,9 +1,4 @@
-interface AttentionModalImgWrapProps {
-  images: {
-    default: string;
-    "2x": string;
-  };
-}
+import { AttentionModalImgWrapProps } from "./AttentionModalImgWrap.types";
 
 const AttentionModalImgWrap = ({ images }: AttentionModalImgWrapProps) => {
   return (

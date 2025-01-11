@@ -1,6 +1,6 @@
-import { AppDispatch } from "@src/redux/store";
-import { signOut } from "@src/redux/users/operation";
-import { selectToken } from "@src/redux/users/selectors";
+import { AppDispatch } from "@redux/store";
+import { signOut } from "@redux/users/operation";
+import { selectToken } from "@redux/users/selectors";
 import { useDispatch, useSelector } from "react-redux";
 
 interface LogoutProps {

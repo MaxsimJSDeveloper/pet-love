@@ -1,7 +1,7 @@
 import AuthNav from "../AuthNav/AuthNav";
 import { NavigationProps } from "./Navigation.types";
 import css from "./NavigationStyles";
-import Icon from "@src/shared/Icon";
+import Icon from "@shared/Icon";
 import Navigation from "../Navigation/Navigation";
 
 const NavigationSidebar = ({

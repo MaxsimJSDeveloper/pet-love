@@ -1,20 +1,20 @@
-import ReactSelect from "@src/components/logic/NoticesFilters/filtersElements/Select";
+import ReactSelect from "@components/logic/NoticesFilters/filtersElements/Select";
 import {
   categoryOptions,
   sexOptions,
   speciesOptions,
 } from "./selectorsOptionsData";
-import SearchField from "@src/shared/SearchField";
-import useScreenWidth from "@src/hooks/useScreenWidth";
+import SearchField from "@shared/SearchField";
+import useScreenWidth from "@hooks/useScreenWidth";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "@src/redux/store";
+import { AppDispatch } from "@redux/store";
 import {
   getKeyword,
   resetPage,
   sortByPopularity,
   sortByPrice,
   updateFilters,
-} from "@src/redux/animals/slice";
+} from "@redux/animals/slice";
 import { Option } from "./NoticesFilters.types";
 import { useCallback } from "react";
 import RadioGroup from "./subComponents/RadioGroup";

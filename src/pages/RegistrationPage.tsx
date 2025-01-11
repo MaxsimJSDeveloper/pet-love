@@ -1,7 +1,7 @@
 import registerImages from "@assets/img/register/registerImages";
-import PetBlock from "@src/components/ui/PetBlock/PetBlock";
-import RegistrationForm from "@src/components/logic/RegistrationForm/RegistrationForm";
-import Title from "@src/shared/Tittle";
+import PetBlock from "@components/ui/PetBlock/PetBlock";
+import RegistrationForm from "@components/logic/RegistrationForm/RegistrationForm";
+import Title from "@shared/Tittle";
 import { Link } from "react-router-dom";
 
 const RegistrationPage = () => {

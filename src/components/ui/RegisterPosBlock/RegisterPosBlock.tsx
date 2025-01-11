@@ -1,4 +1,4 @@
-import attentionImages from "@src/assets/img/attentionModal/attentionImages";
+import attentionImages from "@assets/img/attentionModal/attentionImages";
 import AttentionModalImgWrap from "../AttentionModalImgWrap/AttentionModalImgWrap";
 
 const RegisterPosBlock = () => {

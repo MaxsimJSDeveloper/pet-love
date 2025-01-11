@@ -1,4 +1,4 @@
-import cutText from "@src/utils/cutText";
+import cutText from "@utils/cutText";
 
 interface AnimalInfoProps {
   name: string;

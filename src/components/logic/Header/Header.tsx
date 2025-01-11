@@ -3,12 +3,12 @@ import { useLocation } from "react-router-dom";
 import Icon from "@shared/Icon";
 import Logo from "@components/ui/Logo/Logo";
 import { useSelector } from "react-redux";
-import { selectToken } from "@src/redux/users/selectors";
+import { selectToken } from "@redux/users/selectors";
 import AuthNav from "../AuthNav/AuthNav";
-import useScreenWidth from "@src/hooks/useScreenWidth";
+import useScreenWidth from "@hooks/useScreenWidth";
 import Logout from "../LogoutBtn/LogoutBtn";
-import useToggle from "@src/hooks/useToggle";
-import useOutsideClick from "@src/hooks/useOutsideClick";
+import useToggle from "@hooks/useToggle";
+import useOutsideClick from "@hooks/useOutsideClick";
 import NavigationSidebar from "../NavigationSidebar/NavigationSidebar";
 import Navigation from "../Navigation/Navigation";
 

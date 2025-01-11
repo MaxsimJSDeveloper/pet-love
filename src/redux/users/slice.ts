@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { responseTypes, usersSliceStateTypes } from "./types";
 import { signIn, signOut, signUp } from "./operation";
 
-// Начальное состояние, которое будет заполнено при восстановлении данных через redux-persist
 const initialState: usersSliceStateTypes = {
   user: null,
   token: null,

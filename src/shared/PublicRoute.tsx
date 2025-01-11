@@ -1,4 +1,4 @@
-import { selectToken } from "@src/redux/users/selectors";
+import { selectToken } from "@redux/users/selectors";
 import { ReactNode } from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";

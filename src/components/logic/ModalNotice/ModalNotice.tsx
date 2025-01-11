@@ -1,11 +1,11 @@
-import ModalAttention from "@src/components/logic/ModalAttention/ModalAttention";
-import AnimalInfo from "@src/components/ui/NoticesItem/Subcomponents/AnimalInfo";
-import { selectAnimal, selectIsOpen } from "@src/redux/animals/selectors";
-import { closeModal } from "@src/redux/animals/slice";
-import { AppDispatch } from "@src/redux/store";
-import { selectToken } from "@src/redux/users/selectors";
-import Icon from "@src/shared/Icon";
-import Modal from "@src/shared/Modal";
+import ModalAttention from "@components/logic/ModalAttention/ModalAttention";
+import AnimalInfo from "@components/ui/NoticesItem/Subcomponents/AnimalInfo";
+import { selectAnimal, selectIsOpen } from "@redux/animals/selectors";
+import { closeModal } from "@redux/animals/slice";
+import { AppDispatch } from "@redux/store";
+import { selectToken } from "@redux/users/selectors";
+import Icon from "@shared/Icon";
+import Modal from "@shared/Modal";
 import { useDispatch, useSelector } from "react-redux";
 
 const ModalNotice = () => {
