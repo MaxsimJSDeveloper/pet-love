@@ -22,7 +22,7 @@ const NoticesItem = ({ animal }: NoticesItemProps) => {
 
   return (
     <div className="flex flex-col justify-between h-full">
-      <div className="flex flex-col gap-[16px] flex-grow">
+      <div className="flex flex-col gap-[16px] grow">
         <AnimalImage
           imgURL={imgURL}
           name={name}

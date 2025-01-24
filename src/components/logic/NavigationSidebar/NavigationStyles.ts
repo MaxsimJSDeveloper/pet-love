@@ -4,7 +4,7 @@ const css = {
   linkClass:
     "border-[1px] rounded-[30px] w-[120px] h-[48px] flex items-center justify-center hover:border-[#f6b83d]",
   navigationWrap:
-    "flex flex-col items-center justify-center flex-grow space-y-4",
+    "flex flex-col items-center justify-center grow space-y-4",
 };
 
 export default css;
