@@ -28,15 +28,15 @@ const Modal = ({ children, onClose }: PropsModal) => {
       onClick={onClose}
     >
       <div
-        className="bg-white p-6 rounded-lg w-[335px] md:w-[480px] flex flex-col items-center"
+        className="bg-white p-6 rounded-[30px] w-[335px] md:w-[480px] flex flex-col items-center"
         onClick={(e) => e.stopPropagation()}
       >
         <button className="ml-auto" onClick={onClose}>
           <Icon
             stroke="stroke-[#262626]"
             id="icon-close"
-            width="14px"
-            height="14px"
+            width="24px"
+            height="24px"
           />
         </button>
         {children}

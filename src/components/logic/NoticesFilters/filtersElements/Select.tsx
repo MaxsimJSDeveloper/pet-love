@@ -31,7 +31,7 @@ const ReactSelect = ({
         control: (baseStyles) => ({
           ...baseStyles,
           borderRadius: "30px",
-          height: "42px",
+          height: "48px",
           border: "none",
           boxShadow: "none",
           width: `${width}`,

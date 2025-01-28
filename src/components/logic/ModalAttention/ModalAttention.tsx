@@ -46,7 +46,7 @@ const ModalAttention = () => {
             your credentials. If you do not already have an account, you must
             register to access these features.
           </p>
-          <AuthNav />
+          <AuthNav styles="flex-wrap" />
         </Modal>
       ) : null}
     </>

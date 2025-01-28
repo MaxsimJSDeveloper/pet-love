@@ -36,9 +36,7 @@ const NavigationSidebar = ({
       </div>
       <Navigation location={location} />
 
-      <div className="mt-auto flex flex-col items-center">
-        <AuthNav location={location} />
-      </div>
+      <AuthNav location={location} />
     </nav>
   );
 };

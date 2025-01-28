@@ -6,11 +6,11 @@ import { useSelector } from "react-redux";
 import { selectToken } from "@redux/users/selectors";
 import Logout from "@components/logic/LogoutBtn/LogoutBtn";
 
-const AuthNav = ({ location }: AuthNavProps) => {
+const AuthNav = ({ location, styles }: AuthNavProps) => {
   const token = useSelector(selectToken);
 
   return (
-    <div className={css.navWrap}>
+    <div className={`${css.navWrap} ${styles}`}>
       {token ? (
         <Logout style="m-auto border" />
       ) : (

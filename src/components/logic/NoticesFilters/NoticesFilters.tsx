@@ -61,7 +61,7 @@ const NoticesFilters = () => {
     <section className="bg-[#FFF4DF] rounded-[30px] my-[40px] px-[20px] md:px-[32px]">
       <div className="flex flex-wrap gap-x-[8px] gap-y-[12px] py-[20px] md:gap-[16px] md:pt-[40px] md:pb-[20px]">
         <SearchField
-          styles="w-[295px] border-[#FFF4DF] hover:border hover:border-[#F6B83D] md:w-[265px]"
+          styles="w-[295px] bg-white border-[#fff4df] hover:border-[#F6B83D] md:w-[265px]"
           onSearch={handleKeyword}
           resetPage={() => {
             dispatch(resetPage());
@@ -94,7 +94,7 @@ const NoticesFilters = () => {
 
         <SearchField
           placeholder="Location"
-          styles="w-[295px] border-[#FFF4DF] hover:border-[#F6B83D] md:w-[227px]"
+          styles="w-[295px] border-[#FFF4DF] bg-white hover:border-[#F6B83D] md:w-[227px]"
           onSearch={handleKeyword}
           resetPage={() => {
             dispatch(resetPage());

@@ -7,7 +7,7 @@ const PetBlock = ({ images, className = "", style = {} }: PetBlockProps) => {
       <Icon
         id="icon-rectangle"
         stroke="stroke-inherit"
-        className="absolute z-20 top-3 left-1 fill-alfa-white w-full h-full"
+        className="absolute z-20 top-3 left-1 fill-white opacity-10 w-full h-full"
       />
       <picture className="absolute z-30 w-full h-full">
         <source
