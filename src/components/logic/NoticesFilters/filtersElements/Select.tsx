@@ -1,16 +1,14 @@
 import Select from "react-select";
 
-interface Option {
-  value: string;
-  filter: "category" | "species" | "sex";
-}
-
 interface ReactSelectProps {
-  name: string;
+  name: "category" | "species" | "sex";
   width?: string;
-  options: Option[];
+  options: string[];
   placeholder?: string;
-  onChange: (selectedOption: Option | null) => void;
+  onChange: (
+    value: string | null,
+    filterType: "category" | "species" | "sex"
+  ) => void;
 }
 
 const ReactSelect = ({
@@ -23,10 +21,11 @@ const ReactSelect = ({
   return (
     <Select
       name={name}
-      options={options}
+      options={options.map((value) => ({ label: value, value }))}
       placeholder={placeholder}
-      onChange={onChange}
-      getOptionLabel={(option) => option.value}
+      onChange={(selectedOption) =>
+        onChange(selectedOption?.value || null, name)
+      }
       styles={{
         control: (baseStyles) => ({
           ...baseStyles,

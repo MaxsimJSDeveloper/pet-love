@@ -1,12 +1,7 @@
 import ReactSelect from "@components/logic/NoticesFilters/filtersElements/Select";
-import {
-  categoryOptions,
-  sexOptions,
-  speciesOptions,
-} from "./selectorsOptionsData";
 import SearchField from "@shared/SearchField";
 import useScreenWidth from "@hooks/useScreenWidth";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "@redux/store";
 import {
   getKeyword,
@@ -15,18 +10,33 @@ import {
   sortByPrice,
   updateFilters,
 } from "@redux/animals/slice";
-import { Option } from "./NoticesFilters.types";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import RadioGroup from "./subComponents/RadioGroup";
+import { fetchFilters } from "@redux/animals/operation";
+import {
+  selectCategory,
+  selectSex,
+  selectSpecies,
+} from "@redux/animals/selectors";
 
 const NoticesFilters = () => {
   const dispatch = useDispatch<AppDispatch>();
 
+  const sex = useSelector(selectSex);
+  const category = useSelector(selectCategory);
+  const species = useSelector(selectSpecies);
+
+  useEffect(() => {
+    dispatch(fetchFilters());
+  }, [dispatch]);
+
   const handleChange = useCallback(
-    (option: Option | null) => {
-      if (option) {
-        const { filter, value } = option;
-        dispatch(updateFilters({ filter, value }));
+    (
+      selectedValue: string | null,
+      filterType: "category" | "species" | "sex"
+    ) => {
+      if (selectedValue) {
+        dispatch(updateFilters({ filter: filterType, value: selectedValue }));
       }
     },
     [dispatch]
@@ -71,23 +81,23 @@ const NoticesFilters = () => {
         <ReactSelect
           name="category"
           width={`${isTabletScreen ? "170px" : "143px"}`}
-          options={categoryOptions}
+          options={category}
           placeholder="Category"
           onChange={handleChange}
         />
 
         <ReactSelect
-          name="gender"
+          name="sex"
           width={`${isTabletScreen ? "170px" : "143px"}`}
-          options={sexOptions}
+          options={sex}
           placeholder="By gender"
           onChange={handleChange}
         />
 
         <ReactSelect
-          name="type"
+          name="species"
           width={`${isTabletScreen ? "190px" : "295px"}`}
-          options={speciesOptions}
+          options={species}
           placeholder="By type"
           onChange={handleChange}
         />

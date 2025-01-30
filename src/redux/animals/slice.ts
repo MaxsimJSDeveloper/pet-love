@@ -1,27 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Animal, AnimalIdResponse, AnimalResponse } from "./types";
-import { fetchAnimalById, fetchAnimals } from "./operation";
-
-interface AnimalState {
-  animals: Animal[];
-  animal: AnimalIdResponse;
-  currentPage: number;
-  perPage: number;
-  totalPages: number;
-  keyword: string;
-  filters: {
-    category: string;
-    species: string;
-    sex: string;
-  };
-  sorters: {
-    byPrice: boolean | null;
-    byPopularity: boolean | null;
-  };
-  isLoading: boolean;
-  isOpen: boolean;
-  error: string | null;
-}
+import { AnimalIdResponse, AnimalResponse, AnimalState } from "./types";
+import { fetchAnimalById, fetchAnimals, fetchFilters } from "./operation";
 
 const initialState: AnimalState = {
   animals: [],
@@ -54,6 +33,11 @@ const initialState: AnimalState = {
   sorters: {
     byPrice: null,
     byPopularity: null,
+  },
+  filtersData: {
+    category: [],
+    species: [],
+    sex: [],
   },
   isLoading: false,
   isOpen: false,
@@ -128,6 +112,28 @@ const animalSlice = createSlice({
         }
       )
       .addCase(fetchAnimals.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload ?? action.error.message ?? null;
+      })
+      .addCase(fetchFilters.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        fetchFilters.fulfilled,
+        (
+          state,
+          action: PayloadAction<{
+            category: string[];
+            sex: string[];
+            species: string[];
+          }>
+        ) => {
+          state.isLoading = false;
+          state.filtersData = action.payload;
+          state.error = null;
+        }
+      )
+      .addCase(fetchFilters.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload ?? action.error.message ?? null;
       });

@@ -78,3 +78,28 @@ export const fetchAnimalById = createAsyncThunk<
     return thunkAPI.rejectWithValue("Unknown error occurred");
   }
 });
+
+export const fetchFilters = createAsyncThunk<
+  { category: string[]; sex: string[]; species: string[] },
+  void,
+  { rejectValue: string }
+>("animals/fetchFilters", async (_, thunkAPI) => {
+  try {
+    const [categoryRes, sexRes, speciesRes] = await Promise.all([
+      axios.get("/notices/categories"),
+      axios.get("/notices/sex"),
+      axios.get("/notices/species"),
+    ]);
+
+    return {
+      category: categoryRes.data,
+      sex: sexRes.data,
+      species: speciesRes.data,
+    };
+  } catch (e) {
+    if (e instanceof Error) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+    return thunkAPI.rejectWithValue("Unknown error");
+  }
+});

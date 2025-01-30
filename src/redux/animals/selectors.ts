@@ -16,3 +16,9 @@ export const selectCurrentPage = (state: RootState) =>
   state.animals.currentPage;
 
 export const selectAnimal = (state: RootState) => state.animals.animal;
+
+export const selectSex = (state: RootState) => state.animals.filtersData.sex;
+export const selectCategory = (state: RootState) =>
+  state.animals.filtersData.category;
+export const selectSpecies = (state: RootState) =>
+  state.animals.filtersData.species;

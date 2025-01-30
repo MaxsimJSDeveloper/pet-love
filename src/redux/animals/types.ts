@@ -1,3 +1,29 @@
+export interface AnimalState {
+  animals: Animal[];
+  animal: AnimalIdResponse;
+  currentPage: number;
+  perPage: number;
+  totalPages: number;
+  keyword: string;
+  filters: {
+    category: string;
+    species: string;
+    sex: string;
+  };
+  sorters: {
+    byPrice: boolean | null;
+    byPopularity: boolean | null;
+  };
+  filtersData: {
+    category: string[];
+    species: string[];
+    sex: string[];
+  };
+  isLoading: boolean;
+  isOpen: boolean;
+  error: string | null;
+}
+
 export interface Animal {
   _id: string;
   species:
