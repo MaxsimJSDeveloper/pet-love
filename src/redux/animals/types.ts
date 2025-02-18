@@ -11,8 +11,8 @@ export interface AnimalState {
     sex: string;
   };
   sorters: {
-    byPrice: boolean | null;
-    byPopularity: boolean | null;
+    byPrice: string | null;
+    byPopularity: string | null;
   };
   filtersData: {
     category: string[];

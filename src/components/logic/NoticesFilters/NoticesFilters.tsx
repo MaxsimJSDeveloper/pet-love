@@ -43,20 +43,10 @@ const NoticesFilters = () => {
   );
 
   const handleRadioChange = (value: string) => {
-    const priceMap: Record<string, boolean | null> = {
-      cheap: false,
-      expensive: true,
-    };
-
-    const popularityMap: Record<string, boolean | null> = {
-      unpopular: false,
-      popular: true,
-    };
-
-    if (value in priceMap) {
-      dispatch(sortByPrice(priceMap[value]));
-    } else if (value in popularityMap) {
-      dispatch(sortByPopularity(popularityMap[value]));
+    if (value === "popular" || value === "unpopular") {
+      dispatch(sortByPopularity(value));
+    } else if (value === "cheap" || value === "expensive") {
+      dispatch(sortByPrice(value));
     }
   };
 

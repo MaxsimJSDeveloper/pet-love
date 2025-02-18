@@ -8,7 +8,7 @@ export const fetchAnimals = createAsyncThunk<
   {
     keyword: string;
     filters: { [key: string]: string };
-    sorters: { byPrice: boolean | null; byPopularity: boolean | null };
+    sorters: { byPrice: string | null; byPopularity: string | null };
     currentPage: number;
     perPage: number;
   },
@@ -38,10 +38,13 @@ export const fetchAnimals = createAsyncThunk<
       });
 
       if (sorters.byPrice !== null) {
-        params.append("byPrice", sorters.byPrice.toString());
+        const price = sorters.byPrice === "cheap" ? false : true;
+        params.append("byPrice", price.toString());
       }
+
       if (sorters.byPopularity !== null) {
-        params.append("byPopularity", sorters.byPopularity.toString());
+        const popularity = sorters.byPopularity === "unpopular" ? false : true;
+        params.append("byPopularity", popularity.toString());
       }
 
       const response = await axios.get(`/notices?${params.toString()}`);

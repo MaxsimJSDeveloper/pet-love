@@ -69,10 +69,10 @@ const animalSlice = createSlice({
         state.filters[filter] = value;
       }
     },
-    sortByPrice(state, action: PayloadAction<boolean | null>) {
+    sortByPrice(state, action: PayloadAction<string | null>) {
       state.sorters.byPrice = action.payload;
     },
-    sortByPopularity(state, action: PayloadAction<boolean | null>) {
+    sortByPopularity(state, action: PayloadAction<string | null>) {
       state.sorters.byPopularity = action.payload;
     },
     resetPage(state) {

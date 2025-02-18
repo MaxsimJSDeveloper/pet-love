@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { sortByPrice, sortByPopularity } from "@redux/animals/slice";
 import Icon from "@shared/Icon";
+import { AppDispatch } from "@redux/store";
 
 interface radioBtnProps {
   btnName: string;
@@ -12,7 +13,7 @@ interface radioBtnProps {
 }
 
 const RadioBtn = React.memo(({ btnName, type, onChange }: radioBtnProps) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const sorters = useSelector(selectSorters);
 
   const handleChange = () => {
@@ -29,23 +30,18 @@ const RadioBtn = React.memo(({ btnName, type, onChange }: radioBtnProps) => {
   };
 
   const isSelected =
-    (type === "popularity" &&
-      (btnName === "popular"
-        ? sorters.byPopularity === true
-        : sorters.byPopularity === false)) ||
-    (type === "price" &&
-      (btnName === "expensive"
-        ? sorters.byPrice === true
-        : sorters.byPrice === false));
+    (type === "popularity" && btnName === sorters.byPopularity) ||
+    (type === "price" && btnName === sorters.byPrice);
 
   return (
     <label className="inline-flex items-center cursor-pointer">
       <input
         type="radio"
-        name="filter"
+        name={type}
         className="hidden"
         value={btnName}
         onChange={handleChange}
+        checked={isSelected}
       />
       <span
         className={`p-[14px] h-[48px] rounded-[30px] flex hover:border items-center hover:border-[#F6B83D] capitalize ${
@@ -53,11 +49,9 @@ const RadioBtn = React.memo(({ btnName, type, onChange }: radioBtnProps) => {
         }`}
       >
         <p>{btnName}</p>
-        {isSelected && (
-          <button className="ml-[12px]" onClick={handleReset}>
-            <Icon id="icon-cross-white" width="18px" height="18px" />
-          </button>
-        )}
+        <button type="button" className="ml-[12px]" onClick={handleReset}>
+          <Icon id="icon-cross-white" width="18px" height="18px" />
+        </button>
       </span>
     </label>
   );
