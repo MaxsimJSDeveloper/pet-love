@@ -8,7 +8,7 @@ const css = {
     "font-bold tracking-[-0.03em] leading-[125%] text-[16px] mb:text-[20px]",
   text: "font-medium tracking-[-0.02em] leading-[129%] text-[14px] mb:text-[16px]",
   footer: "flex justify-between mt-auto",
-  link: "text-[#f6b83d]",
+  link: "text-orange",
 };
 
 export default css;

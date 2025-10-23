@@ -19,7 +19,7 @@ const Logout = ({ style }: LogoutProps) => {
   return (
     isLogged != null && (
       <button
-        className={`${style} rounded-[30px] py-[15px] px-[35px] max-w-[136px] bg-[#f6b83d] text-[16px] text-bold uppercase text-white leading-[125%] tracking-[-0.03em] ml-auto xl:w-full`}
+        className={`${style} rounded-[30px] py-[15px] px-[35px] max-w-[136px] bg-orange text-[16px] text-bold uppercase text-white leading-[125%] tracking-[-0.03em] ml-auto xl:w-full`}
         onClick={handleLogout}
       >
         Log out

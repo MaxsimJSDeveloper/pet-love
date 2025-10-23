@@ -7,11 +7,11 @@ const RegisterPosBlock = () => {
       <AttentionModalImgWrap images={attentionImages} />
       <div>
         <div>
-          <h2 className="text-[16px] font-bold text-[#f6b83d] leading-[125%] tracking-[-0.03em]">
+          <h2 className="text-[16px] font-bold text-orange leading-[125%] tracking-[-0.03em]">
             Rich
           </h2>
           <span className="text-[12px] leading-[117%] tracking-[-0.02em] text-date-color">
-            Birthday:<p className="text-[#262626]">21.09.2020</p>
+            Birthday:<p className="text-dark">21.09.2020</p>
           </span>
         </div>
         <p className="text-[12px] leading-[117%] tracking-[-0.02em] text-dark-opacity">

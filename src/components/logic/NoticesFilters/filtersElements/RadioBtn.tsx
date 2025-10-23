@@ -44,15 +44,15 @@ const RadioBtn = React.memo(({ btnName, type, onChange }: radioBtnProps) => {
         checked={isSelected}
       />
       <span
-        className={`p-[14px] h-[48px] rounded-[30px] flex hover:border items-center hover:border-[#F6B83D] capitalize ${
-          isSelected ? "bg-[#F6B83D] text-white" : "bg-white text-[#262626]"
+        className={`p-[14px] h-[48px] rounded-[30px] flex hover:border items-center hover:border-orange capitalize ${
+          isSelected ? "bg-orange text-white" : "bg-white text-dark"
         }`}
       >
         <p>{btnName}</p>
         <button type="button" className="ml-[12px]" onClick={handleReset}>
           <Icon
             id="icon-cross"
-            className="text-[#fff]"
+            className="text-white"
             width="18px"
             height="18px"
           />

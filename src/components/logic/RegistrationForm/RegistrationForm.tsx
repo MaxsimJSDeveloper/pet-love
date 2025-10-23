@@ -60,7 +60,7 @@ const RegistrationForm = () => {
         </div>
         <button
           type="submit"
-          className="bg-[#f6b83d] text-white uppercase h-[42px] rounded-[30px] mt-[24px] mb-[12px]"
+          className="bg-orange text-white uppercase h-[42px] rounded-[30px] mt-[24px] mb-[12px]"
         >
           Registration
         </button>

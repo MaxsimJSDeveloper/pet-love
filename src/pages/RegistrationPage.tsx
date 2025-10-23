@@ -15,7 +15,7 @@ const RegistrationPage = () => {
           className="w-full mx-auto xl:max-w-[592px] md:max-w-[704px] h-[280px] xl:h-[654px] rounded-[60px] mobile:h-[280px] mobile-adaptive:h-[280px] max-w-[335px]"
         />
 
-        <div className="p-[20px] bg-[#fff] w-full max-w-[704px] rounded-[30px] flex flex-col justify-center items-center mx-auto">
+        <div className="p-[20px] bg-white w-full max-w-[704px] rounded-[30px] flex flex-col justify-center items-center mx-auto">
           <div className="w-full max-w-[424px] xl:max-w-[592px]">
             <Title style="mb-[12px]">Registration</Title>
             <p className="mb-[24px] text-[14px]">
@@ -25,7 +25,7 @@ const RegistrationPage = () => {
 
             <p className="text-date-color flex justify-center gap-[2px]">
               Already have an account?
-              <Link to="/login" className="text-[#f6b83d]">
+              <Link to="/login" className="text-orange">
                 Login
               </Link>
             </p>

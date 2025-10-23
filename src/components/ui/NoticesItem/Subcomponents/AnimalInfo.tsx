@@ -30,7 +30,7 @@ const AnimalInfo = ({
           <p className="font-medium text-[10px] text-date-color leading-[140%]">
             Name
           </p>
-          <p className="font-medium text-[12px] text-[#262626] leading-[117%] capitalize">
+          <p className="font-medium text-[12px] text-dark leading-[117%] capitalize">
             {withReduction ? cutText(name, 8) : name}
           </p>
         </li>
@@ -38,7 +38,7 @@ const AnimalInfo = ({
           <p className="font-medium text-[10px] text-date-color leading-[140%]">
             Birthday
           </p>
-          <p className="font-medium text-[12px] text-[#262626] leading-[117%]">
+          <p className="font-medium text-[12px] text-dark leading-[117%]">
             {birthday ? birthday.replace(/-/g, ".") : "N/A"}
           </p>
         </li>
@@ -46,7 +46,7 @@ const AnimalInfo = ({
           <p className="font-medium text-[10px] text-date-color leading-[140%]">
             Sex
           </p>
-          <p className="font-medium text-[12px] text-[#262626] leading-[117%] capitalize">
+          <p className="font-medium text-[12px] text-dark leading-[117%] capitalize">
             {sex}
           </p>
         </li>
@@ -54,7 +54,7 @@ const AnimalInfo = ({
           <p className="font-medium text-[10px] text-date-color leading-[140%]">
             Species
           </p>
-          <p className="font-medium text-[12px] text-[#262626] leading-[117%] capitalize">
+          <p className="font-medium text-[12px] text-dark leading-[117%] capitalize">
             {species}
           </p>
         </li>
@@ -63,7 +63,7 @@ const AnimalInfo = ({
             <p className="font-medium text-[10px] text-date-color leading-[140%]">
               Category
             </p>
-            <p className="font-medium text-[12px] text-[#262626] leading-[117%] capitalize">
+            <p className="font-medium text-[12px] text-dark leading-[117%] capitalize">
               {category}
             </p>
           </li>

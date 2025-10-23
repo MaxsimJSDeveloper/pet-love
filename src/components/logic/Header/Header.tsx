@@ -52,9 +52,7 @@ const Header = () => {
           >
             <Icon
               id="icon-burger"
-              className={
-                location.pathname === "/" ? "text-white" : "text-[#262626]"
-              }
+              className={location.pathname === "/" ? "text-white" : "text-dark"}
               width={"23px"}
               height={"23px"}
             />

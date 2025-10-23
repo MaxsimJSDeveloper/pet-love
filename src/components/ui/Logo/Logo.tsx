@@ -9,14 +9,14 @@ export const Logo = ({ location }: LogoProps) => {
     <NavLink to="/" className={css.navLink}>
       <div
         className={`${css.logoContainer} ${
-          location === "/" ? "text-white" : "text-[#262626]"
+          location === "/" ? "text-white" : "text-dark"
         }`}
       >
         <p className="md:text-[28px]">petl</p>
         <div>
           <Icon
             id="icon-logo"
-            className={location === "/" ? "text-white" : "text-[#F6B83D]"}
+            className={location === "/" ? "text-white" : "text-orange"}
             width="23px"
             height="23px"
           />

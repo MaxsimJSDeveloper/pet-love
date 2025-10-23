@@ -28,7 +28,7 @@ const NavigationSidebar = ({
         <button onClick={handleClose} type="button">
           <Icon
             id="icon-cross"
-            className={location === "/" ? "text-[#262626]" : "text-white"}
+            className={location === "/" ? "text-dark" : "text-white"}
             width={"32px"}
             height={"32px"}
           />

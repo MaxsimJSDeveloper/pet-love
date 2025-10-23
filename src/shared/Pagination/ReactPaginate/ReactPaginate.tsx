@@ -27,7 +27,7 @@ const CustomReactPaginate = ({
       nextLabel={
         <Icon
           id="icon-arrow-right"
-          className={isNextDisabled ? "text-date-color" : "text-[#262626]"}
+          className={isNextDisabled ? "" : "text-dark"}
         />
       }
       onPageChange={handlePageChange}
@@ -37,7 +37,7 @@ const CustomReactPaginate = ({
       previousLabel={
         <Icon
           id="icon-arrow-left"
-          className={isPreviousDisabled ? "text-date-color" : "text-[#262626]"}
+          className={isPreviousDisabled ? "" : "text-dark"}
         />
       }
       forcePage={currentPage > 0 ? currentPage - 1 : 0}
@@ -49,7 +49,7 @@ const CustomReactPaginate = ({
       nextClassName="flex"
       previousLinkClassName={`${css.buttonWrap} mr-[14px] ml-[8px]`}
       nextLinkClassName={`${css.buttonWrap} ml-[14px] mr-[8px]`}
-      activeClassName="bg-[#f6b83d] text-[#fff] border-[#f6b83d] rounded-full"
+      activeClassName="bg-orange text-[#fff] border-orange rounded-full"
       disabledClassName="text-gray-400 cursor-not-allowed"
     />
   );

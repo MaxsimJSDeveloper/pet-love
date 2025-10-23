@@ -3,7 +3,7 @@ import { PetBlockProps } from "./PetBlock.types";
 
 const PetBlock = ({ images, className = "", style = {} }: PetBlockProps) => {
   return (
-    <div className={`relative bg-[#f6b83d] p-4 ${className}`} style={style}>
+    <div className={`relative bg-orange p-4 ${className}`} style={style}>
       <Icon
         id="icon-rectangle"
         className="absolute z-20 top-3 left-1 fill-white opacity-10 w-full h-full"

@@ -39,11 +39,11 @@ const ModalNotice = () => {
             price={price}
             style="items-center"
           />
-          <button className="flex bg-[#f6b83d] rounded-[30px] w-full justify-center items-center h-[48px] gap-2">
+          <button className="flex bg-orange rounded-[30px] w-full justify-center items-center h-[48px] gap-2">
             <p className="text-white">Add to</p>
             <Icon
               id="icon-like"
-              className="stroke-[#fff4df] fill-[#f6b83d]"
+              className="stroke-white-transparent fill-orange"
               width="18px"
               height="18px"
             />

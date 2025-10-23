@@ -20,7 +20,7 @@ const Button = ({ isVisible, toggleVisibility, ...rest }: ButtonProps) => {
     >
       <Icon
         id={isVisible ? "icon-eye" : "icon-eye-off"}
-        className={"text-[#F6B83D]"}
+        className={"text-orange"}
         width={"18px"}
         height={"18px"}
       />

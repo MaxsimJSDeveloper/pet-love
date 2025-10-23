@@ -2,7 +2,7 @@ import { AttentionModalImgWrapProps } from "./AttentionModalImgWrap.types";
 
 const AttentionModalImgWrap = ({ images }: AttentionModalImgWrapProps) => {
   return (
-    <div className="w-[80px] h-[80px] rounded-full bg-[#fff4df] flex items-center justify-center mb-[20px]">
+    <div className="w-[80px] h-[80px] rounded-full bg-white-transparent flex items-center justify-center mb-[20px]">
       <picture className="">
         <source
           srcSet={`${images.default} 1x, ${images["2x"]} 2x`}

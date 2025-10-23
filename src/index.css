@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --color-orange: #f6b83d;
+  --color-white-transparent: #fff4df;
+  --color-dark: #262626;
+}
+
 @layer base {
   *,
   ::after,

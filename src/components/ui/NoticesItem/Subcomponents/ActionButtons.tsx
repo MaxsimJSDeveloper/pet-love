@@ -30,17 +30,17 @@ const ActionButtons = ({ id }: ActionButtonsProps) => {
     <div className="flex gap-[10px]">
       <button
         onClick={handleClick}
-        className="bg-[#f6b83d] mt-auto w-[231px] h-[46px] flex-1 rounded-[30px] text-white font-medium md:w-[236px] md:h-[48px]"
+        className="bg-orange mt-auto w-[231px] h-[46px] flex-1 rounded-[30px] text-white font-medium md:w-[236px] md:h-[48px]"
       >
         Learn more
       </button>
       <button
         onClick={handleLikeClick}
-        className="bg-[#fff4df] flex items-center justify-center rounded-full w-[46px] md:w-[48px]"
+        className="bg-white-transparent flex items-center justify-center rounded-full w-[46px] md:w-[48px]"
       >
         <Icon
           id="icon-like"
-          className="stroke-[#f6b83d] fill-[#fff4df]"
+          className="stroke-orange fill-white-transparent"
           width="18px"
           height="18px"
         />

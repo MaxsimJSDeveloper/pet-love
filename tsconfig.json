@@ -8,7 +8,7 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
@@ -23,7 +23,7 @@
       "@utils/*": ["src/utils/*"],
       "@shared/*": ["src/shared/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@api/*":["src/api/*"]
+      "@api/*": ["src/api/*"]
     },
     "allowImportingTsExtensions": true
   },

@@ -16,11 +16,11 @@ const Navigation = ({ location, wrapper }: NavigationProps) => {
 
     const textColor = useWithStyles
       ? "text-white hover:border-white"
-      : "text-[#262626] hover:border-[#F6B83D]";
+      : "text-dark hover:border-orange";
 
     const activeClass = isActive
       ? isDesktopScreen
-        ? "border-[#F6B83D]"
+        ? "border-orange"
         : "border-white"
       : "";
 

@@ -37,7 +37,7 @@ const ModalAttention = () => {
       {isOpen && !token ? (
         <Modal onClose={handleSetIsOpen}>
           <AttentionModalImgWrap images={attentionImages} />
-          <h2 className="text-[20px] font-bold text-[#f6b83d] leading-[100%] tracking-[-0.03em] mb-[20px]">
+          <h2 className="text-[20px] font-bold text-orange leading-[100%] tracking-[-0.03em] mb-[20px]">
             Attention
           </h2>
           <p className="text-[14px] leading-[123%] tracking-[-0.02em] text-center mb-[24px]">

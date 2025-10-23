@@ -23,8 +23,11 @@ const AuthNav = ({ location, styles }: AuthNavProps) => {
           >
             <p className={`${css.text} text-white xl:w-[120px]`}>Log In</p>
           </NavLink>
-          <NavLink className={`${css.navLink} bg-[#fff4df]`} to="/register">
-            <p className={`${css.text} text-[#f6b83d]`}>Registration</p>
+          <NavLink
+            className={`${css.navLink} bg-white-transparent`}
+            to="/register"
+          >
+            <p className={`${css.text} text-orange`}>Registration</p>
           </NavLink>
         </>
       )}
