@@ -27,8 +27,7 @@ const CustomReactPaginate = ({
       nextLabel={
         <Icon
           id="icon-arrow-right"
-          stroke="none"
-          className={isNextDisabled ? "fill-date-color" : "fill-[#262626]"}
+          className={isNextDisabled ? "text-date-color" : "text-[#262626]"}
         />
       }
       onPageChange={handlePageChange}
@@ -38,8 +37,7 @@ const CustomReactPaginate = ({
       previousLabel={
         <Icon
           id="icon-arrow-left"
-          stroke="none"
-          className={isPreviousDisabled ? "fill-date-color" : "fill-[#262626]"}
+          className={isPreviousDisabled ? "text-date-color" : "text-[#262626]"}
         />
       }
       forcePage={currentPage > 0 ? currentPage - 1 : 0}

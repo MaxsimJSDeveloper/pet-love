@@ -30,16 +30,14 @@ const Pagination = ({
         <div className="flex relative">
           <Icon
             id="icon-arrow-left"
-            stroke="none"
             className={`${
-              isPreviousDisabled ? "fill-date-color" : "fill-[#262626]"
+              isPreviousDisabled ? "text-date-color" : "text-[#262626]"
             }`}
           />
           <Icon
             id="icon-arrow-left"
-            stroke="none"
             className={`absolute right-2 ${
-              isPreviousDisabled ? "fill-date-color" : "fill-[#262626]"
+              isPreviousDisabled ? "text-date-color" : "text-[#262626]"
             }`}
           />
         </div>
@@ -57,13 +55,13 @@ const Pagination = ({
           <Icon
             id="icon-arrow-right"
             className={`${
-              isNextDisabled ? "fill-date-color" : "fill-[#262626]"
+              isNextDisabled ? "text-date-color" : "text-[#262626]"
             }`}
           />
           <Icon
             id="icon-arrow-right"
             className={`absolute left-2 ${
-              isNextDisabled ? "fill-date-color" : "fill-[#262626]"
+              isNextDisabled ? "text-date-color" : "text-[#262626]"
             }`}
           />
         </div>
