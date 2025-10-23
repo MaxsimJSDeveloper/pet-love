@@ -33,8 +33,8 @@ const Modal = ({ children, onClose }: PropsModal) => {
       >
         <button className="ml-auto" onClick={onClose}>
           <Icon
-            stroke="stroke-[#262626]"
-            id="icon-close"
+            className={"text-[#262626]"}
+            id="icon-cross"
             width="24px"
             height="24px"
           />

@@ -16,13 +16,7 @@ export const Logo = ({ location }: LogoProps) => {
         <div>
           <Icon
             id="icon-logo"
-            className={
-              location === "/"
-                ? "fill-white stroke-white"
-                : "fill-[#F6B83D] stroke-[#F6B83D]"
-            }
-            fill={location === "/" ? "#fff" : "#F6B83D"}
-            stroke={location === "/" ? "#fff" : "#F6B83D"}
+            className={location === "/" ? "text-white" : "text-[#F6B83D]"}
             width="23px"
             height="23px"
           />

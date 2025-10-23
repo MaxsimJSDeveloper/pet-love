@@ -10,14 +10,13 @@ const Navigation = ({ location, wrapper }: NavigationProps) => {
   const getLinkClasses = (isActive: boolean, currentLocation: string) => {
     const baseClass = css.linkClass;
 
-    const textColor =
-      currentLocation === "/"
-        ? isDesktopScreen
-          ? "text-white hover:border-white"
-          : "text-[#262626] hover:border[#F6B83D]"
-        : !isDesktopScreen
-        ? "text-white hover:border-white"
-        : "text-[#262626] hover:border-[#F6B83D]";
+    const isHomePage = currentLocation === "/";
+    const useWithStyles =
+      (isDesktopScreen && isHomePage) || (!isDesktopScreen && !isHomePage);
+
+    const textColor = useWithStyles
+      ? "text-white hover:border-white"
+      : "text-[#262626] hover:border-[#F6B83D]";
 
     const activeClass = isActive
       ? isDesktopScreen

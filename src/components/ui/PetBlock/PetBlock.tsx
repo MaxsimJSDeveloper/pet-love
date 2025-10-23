@@ -6,7 +6,6 @@ const PetBlock = ({ images, className = "", style = {} }: PetBlockProps) => {
     <div className={`relative bg-[#f6b83d] p-4 ${className}`} style={style}>
       <Icon
         id="icon-rectangle"
-        stroke="stroke-inherit"
         className="absolute z-20 top-3 left-1 fill-white opacity-10 w-full h-full"
       />
       <picture className="absolute z-30 w-full h-full">

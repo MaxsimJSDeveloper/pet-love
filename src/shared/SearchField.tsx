@@ -35,7 +35,7 @@ const SearchField = ({
       >
         <Icon
           id="icon-search"
-          className={`fill-white stroke-[#262626] ${iconStyles}`}
+          className={`text-[#262626] ${iconStyles}`}
           width="18px"
           height="18px"
         />

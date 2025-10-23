@@ -35,10 +35,7 @@ const NoticesItem = ({ animal }: NoticesItemProps) => {
               {cutText(title, 16)}
             </h2>
             <div className="flex gap-[5px]">
-              <Icon
-                id="icon-star"
-                className="stroke-[#FFC531] fill-[#FFC531]"
-              />
+              <Icon id="icon-star" className="text-[#FFC531]" />
               <p>{popularity}</p>
             </div>
           </div>

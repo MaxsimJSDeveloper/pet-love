@@ -27,8 +27,8 @@ const NavigationSidebar = ({
       <div className="flex justify-end items-start">
         <button onClick={handleClose} type="button">
           <Icon
-            id="icon-close"
-            stroke={location === "/" ? "stroke-[#262626]" : "stroke-white"}
+            id="icon-cross"
+            className={location === "/" ? "text-[#262626]" : "text-white"}
             width={"32px"}
             height={"32px"}
           />

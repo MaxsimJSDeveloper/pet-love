@@ -52,8 +52,8 @@ const Header = () => {
           >
             <Icon
               id="icon-burger"
-              stroke={
-                location.pathname === "/" ? "stroke-white" : "stroke-[#262626]"
+              className={
+                location.pathname === "/" ? "text-white" : "text-[#262626]"
               }
               width={"23px"}
               height={"23px"}

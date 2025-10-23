@@ -4,8 +4,6 @@ export interface IconProps {
   id: string;
   width?: string;
   height?: string;
-  fill?: string;
-  stroke?: string;
   className?: string;
 }
 
@@ -14,12 +12,10 @@ const Icon = ({
   width = "24px",
   height = "24px",
   className = "",
-  fill = "",
-  stroke = "",
 }: IconProps) => {
   return (
     <svg
-      className={`${fill} ${stroke} ${className}`}
+      className={className}
       width={width}
       height={height}
     >

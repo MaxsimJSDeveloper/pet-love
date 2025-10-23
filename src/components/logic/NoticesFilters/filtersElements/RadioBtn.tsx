@@ -50,7 +50,12 @@ const RadioBtn = React.memo(({ btnName, type, onChange }: radioBtnProps) => {
       >
         <p>{btnName}</p>
         <button type="button" className="ml-[12px]" onClick={handleReset}>
-          <Icon id="icon-cross-white" width="18px" height="18px" />
+          <Icon
+            id="icon-cross"
+            className="text-[#fff]"
+            width="18px"
+            height="18px"
+          />
         </button>
       </span>
     </label>
