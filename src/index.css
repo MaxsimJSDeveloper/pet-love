@@ -14,6 +14,32 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+
+  * {
+    scroll-behavior: smooth;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  html {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Manrope", sans-serif;
+    color: #262626;
+    background-color: #f9f9f9;
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    object-fit: cover;
+  }
 }
 
 @layer utilities {
@@ -42,34 +68,6 @@
     font-weight: 800;
     font-style: normal;
     font-display: swap;
-  }
-}
-
-@layer base {
-  * {
-    scroll-behavior: smooth;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-
-  html {
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: "Manrope", sans-serif;
-    color: #262626;
-    background-color: #f9f9f9;
-    margin: 0;
-  }
-
-  img {
-    display: block;
-    object-fit: cover;
   }
 }
 
