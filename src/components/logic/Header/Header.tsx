@@ -31,7 +31,6 @@ const Header = () => {
   return (
     <>
       <header
-        ref={navRef}
         className={`flex justify-between items-center relative mx-auto z-50 md:w-[636px] xl:w-[1152px] ${
           location.pathname === "/" ? "px-[16px]" : "px-0"
         }`}
@@ -66,6 +65,7 @@ const Header = () => {
           location={location.pathname}
           isOpen={isOpen}
           setIsOpen={close}
+          ref={navRef}
         />
       )}
     </>

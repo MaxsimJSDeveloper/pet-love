@@ -15,9 +15,12 @@ import { friendsReducer } from "./friends/slice";
 import { usersReducer } from "./users/slice";
 import { animalsReducer } from "./animals/slice";
 
+const persistStorage =
+  (storage as unknown as { default: typeof storage }).default || storage;
+
 const persistConfigUsers = {
   key: "users",
-  storage,
+  storage: persistStorage,
   whitelist: ["token"],
 };
 

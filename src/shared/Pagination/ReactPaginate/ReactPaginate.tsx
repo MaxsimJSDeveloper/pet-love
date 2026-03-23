@@ -1,6 +1,9 @@
-import ReactPaginate from "react-paginate";
+import ReactPaginateSource from "react-paginate";
 import css from "../PaginationStyles";
 import Icon from "@shared/Icon";
+
+const ReactPaginate = ((ReactPaginateSource as unknown as { default: unknown })
+  .default || ReactPaginateSource) as React.ElementType;
 
 interface CustomReactPaginateProps {
   handlePageChange: (selectedItem: { selected: number }) => void;
