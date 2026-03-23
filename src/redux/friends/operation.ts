@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import { PetFriend } from "./types";
+import axiosInstance from "@api/axiosInstance";
 
 export const fetchFriends = createAsyncThunk<
   PetFriend[],
@@ -8,7 +8,7 @@ export const fetchFriends = createAsyncThunk<
   { rejectValue: string }
 >("friends/fetchAll", async (_, thunkAPI) => {
   try {
-    const response = await axios.get("/friends");
+    const response = await axiosInstance.get("/friends");
     return response.data;
   } catch (e) {
     if (e instanceof Error) {

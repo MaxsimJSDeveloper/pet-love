@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import { responseTypes, usersSliceStateTypes } from "./types";
+import axiosInstance from "@api/axiosInstance";
 
 export const signIn = createAsyncThunk<
   responseTypes,
@@ -8,7 +8,10 @@ export const signIn = createAsyncThunk<
   { rejectValue: string }
 >("users/signIn", async ({ email, password }, thunkAPI) => {
   try {
-    const response = await axios.post("/users/signin", { email, password });
+    const response = await axiosInstance.post("/users/signin", {
+      email,
+      password,
+    });
     return response.data;
   } catch (e) {
     if (e instanceof Error) {
@@ -24,7 +27,7 @@ export const signUp = createAsyncThunk<
   { rejectValue: string }
 >("users/signUp", async ({ name, email, password }, thunkAPI) => {
   try {
-    const response = await axios.post("/users/signup", {
+    const response = await axiosInstance.post("/users/signup", {
       name,
       email,
       password,
@@ -48,7 +51,7 @@ export const signOut = createAsyncThunk<
   const token = state.users.token;
 
   try {
-    const response = await axios.post("/users/signout", null, {
+    const response = await axiosInstance.post("/users/signout", null, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

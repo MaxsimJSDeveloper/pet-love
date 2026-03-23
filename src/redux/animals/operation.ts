@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { AnimalIdResponse, AnimalResponse } from "./types";
-import axios from "axios";
 import { store } from "../store";
+import axiosInstance from "@api/axiosInstance";
 
 export const fetchAnimals = createAsyncThunk<
   AnimalResponse,
@@ -47,7 +47,7 @@ export const fetchAnimals = createAsyncThunk<
         params.append("byPopularity", popularity.toString());
       }
 
-      const response = await axios.get(`/notices?${params.toString()}`);
+      const response = await axiosInstance.get(`/notices?${params.toString()}`);
       return response.data;
     } catch (e) {
       if (e instanceof Error) {
@@ -55,7 +55,7 @@ export const fetchAnimals = createAsyncThunk<
       }
       return thunkAPI.rejectWithValue("Unknown error occurred");
     }
-  }
+  },
 );
 
 export const fetchAnimalById = createAsyncThunk<
@@ -67,7 +67,7 @@ export const fetchAnimalById = createAsyncThunk<
     const state = store.getState();
     const token = state.users.token;
 
-    const response = await axios.get(`/notices/${id}`, {
+    const response = await axiosInstance.get(`/notices/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -89,9 +89,9 @@ export const fetchFilters = createAsyncThunk<
 >("animals/fetchFilters", async (_, thunkAPI) => {
   try {
     const [categoryRes, sexRes, speciesRes] = await Promise.all([
-      axios.get("/notices/categories"),
-      axios.get("/notices/sex"),
-      axios.get("/notices/species"),
+      axiosInstance.get("/notices/categories"),
+      axiosInstance.get("/notices/sex"),
+      axiosInstance.get("/notices/species"),
     ]);
 
     return {

@@ -1,8 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import { NewsResponse } from "./types";
-
-axios.defaults.baseURL = "https://petlove.b.goit.study/api";
+import axiosInstance from "../../api/axiosInstance";
 
 export const fetchNews = createAsyncThunk<
   NewsResponse,
@@ -18,11 +16,11 @@ export const fetchNews = createAsyncThunk<
     params.append("page", String(currentPage));
     params.append("limit", String(perPage));
 
-    if (keyword != "" || null || undefined) {
+    if (keyword && keyword.trim() !== "") {
       params.append("keyword", keyword);
     }
 
-    const response = await axios.get(`/news?${params.toString()}`);
+    const response = await axiosInstance.get(`/news?${params.toString()}`);
     return response.data;
   } catch (e) {
     if (e instanceof Error) {

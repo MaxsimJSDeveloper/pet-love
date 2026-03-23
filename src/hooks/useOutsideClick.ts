@@ -1,11 +1,15 @@
 import { useEffect } from "react";
 
-const useOutsideClick = (callback: () => void, isEnabled: boolean) => {
+const useOutsideClick = (
+  ref: RefObject<HTMLElement>,
+  callback: () => void,
+  isEnabled: boolean,
+) => {
   useEffect(() => {
     if (!isEnabled) return;
 
     const handleClick = (e: MouseEvent) => {
-      if (!(e.target as HTMLElement).closest(".navigation")) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
         callback();
       }
     };
@@ -14,7 +18,7 @@ const useOutsideClick = (callback: () => void, isEnabled: boolean) => {
     return () => {
       document.removeEventListener("click", handleClick);
     };
-  }, [callback, isEnabled]);
+  }, [ref, callback, isEnabled]);
 };
 
 export default useOutsideClick;

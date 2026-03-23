@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import Icon from "@shared/Icon";
 import Logo from "@components/ui/Logo/Logo";
@@ -17,7 +17,8 @@ const Header = () => {
   const location = useLocation();
   const token = useSelector(selectToken);
 
-  useOutsideClick(close, isOpen);
+  const navRef = useRef<HTMLDivElement>(null);
+  useOutsideClick(navRef, close, isOpen);
 
   useEffect(() => {
     close();
@@ -30,6 +31,7 @@ const Header = () => {
   return (
     <>
       <header
+        ref={navRef}
         className={`flex justify-between items-center relative mx-auto z-50 md:w-[636px] xl:w-[1152px] ${
           location.pathname === "/" ? "px-[16px]" : "px-0"
         }`}
