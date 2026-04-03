@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { AnimalIdResponse, AnimalResponse } from "./types";
-import { store } from "../store";
 import axiosInstance from "@api/axiosInstance";
+import { handleThunkError } from "@utils/handleThunkError";
 
 export const fetchAnimals = createAsyncThunk<
   AnimalResponse,
@@ -50,10 +50,7 @@ export const fetchAnimals = createAsyncThunk<
       const response = await axiosInstance.get(`/notices?${params.toString()}`);
       return response.data;
     } catch (e) {
-      if (e instanceof Error) {
-        return thunkAPI.rejectWithValue(e.message);
-      }
-      return thunkAPI.rejectWithValue("Unknown error occurred");
+      return handleThunkError(e, thunkAPI);
     }
   },
 );
@@ -64,21 +61,11 @@ export const fetchAnimalById = createAsyncThunk<
   { rejectValue: string }
 >("animals/fetchById", async (id, thunkAPI) => {
   try {
-    const state = store.getState();
-    const token = state.users.token;
-
-    const response = await axiosInstance.get(`/notices/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await axiosInstance.get(`/notices/${id}`);
 
     return response.data;
-  } catch (error) {
-    if (error instanceof Error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-    return thunkAPI.rejectWithValue("Unknown error occurred");
+  } catch (e) {
+    return handleThunkError(e, thunkAPI);
   }
 });
 
@@ -100,9 +87,6 @@ export const fetchFilters = createAsyncThunk<
       species: speciesRes.data,
     };
   } catch (e) {
-    if (e instanceof Error) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-    return thunkAPI.rejectWithValue("Unknown error");
+    return handleThunkError(e, thunkAPI);
   }
 });

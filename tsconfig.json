@@ -14,16 +14,15 @@
     "jsx": "react-jsx",
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@pages/*": ["src/pages/*"],
-      "@redux/*": ["src/redux/*"],
-      "@assets/*": ["src/assets/*"],
-      "@utils/*": ["src/utils/*"],
-      "@shared/*": ["src/shared/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@api/*": ["src/api/*"]
+      "@components/*": ["./src/components/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@redux/*": ["./src/redux/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@api/*": ["./src/api/*"]
     },
     "allowImportingTsExtensions": true
   },

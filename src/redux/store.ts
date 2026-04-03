@@ -14,6 +14,7 @@ import { newsReducer } from "./news/slice";
 import { friendsReducer } from "./friends/slice";
 import { usersReducer } from "./users/slice";
 import { animalsReducer } from "./animals/slice";
+import { injectStore } from "@api/axiosInstance";
 
 const persistStorage =
   (storage as unknown as { default: typeof storage }).default || storage;
@@ -40,6 +41,8 @@ export const store = configureStore({
       },
     }),
 });
+
+injectStore(store);
 
 export const persistor = persistStore(store);
 

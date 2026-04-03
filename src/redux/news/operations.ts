@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { NewsResponse } from "./types";
 import axiosInstance from "../../api/axiosInstance";
+import { handleThunkError } from "@utils/handleThunkError";
 
 export const fetchNews = createAsyncThunk<
   NewsResponse,
@@ -23,9 +24,6 @@ export const fetchNews = createAsyncThunk<
     const response = await axiosInstance.get(`/news?${params.toString()}`);
     return response.data;
   } catch (e) {
-    if (e instanceof Error) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-    return thunkAPI.rejectWithValue("Unknown error occurred");
+    return handleThunkError(e, thunkAPI);
   }
 });

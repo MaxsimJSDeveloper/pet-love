@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { responseTypes, usersSliceStateTypes } from "./types";
+import { responseTypes } from "./types";
 import axiosInstance from "@api/axiosInstance";
+import { handleThunkError } from "@utils/handleThunkError";
 
 export const signIn = createAsyncThunk<
   responseTypes,
@@ -14,10 +15,7 @@ export const signIn = createAsyncThunk<
     });
     return response.data;
   } catch (e) {
-    if (e instanceof Error) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-    return thunkAPI.rejectWithValue("Unknown error occurred");
+    return handleThunkError(e, thunkAPI);
   }
 });
 
@@ -35,10 +33,7 @@ export const signUp = createAsyncThunk<
 
     return response.data;
   } catch (e) {
-    if (e instanceof Error) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-    return thunkAPI.rejectWithValue("Unknown error occurred");
+    return handleThunkError(e, thunkAPI);
   }
 });
 
@@ -47,21 +42,11 @@ export const signOut = createAsyncThunk<
   void,
   { rejectValue: string }
 >("users/signOut", async (_, thunkAPI) => {
-  const state = thunkAPI.getState() as { users: usersSliceStateTypes };
-  const token = state.users.token;
-
   try {
-    const response = await axiosInstance.post("/users/signout", null, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await axiosInstance.post("/users/signout");
 
     return response.data;
   } catch (e) {
-    if (e instanceof Error) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-    return thunkAPI.rejectWithValue("Unknown error occurred");
+    return handleThunkError(e, thunkAPI);
   }
 });

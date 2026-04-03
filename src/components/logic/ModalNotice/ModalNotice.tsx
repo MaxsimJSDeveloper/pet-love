@@ -26,7 +26,16 @@ const ModalNotice = () => {
     <>
       {isOpen && token ? (
         <Modal onClose={handleSetIsOpen}>
-          <img src={imgURL} width={150} className="rounded-full mb-[16px]" />
+          {imgURL ? (
+            <img
+              src={imgURL}
+              alt={name}
+              width={150}
+              className="rounded-full mb-[16px]"
+            />
+          ) : (
+            <div className="w-full h-full bg-gray-200 animate-pulse rounded-lg" />
+          )}
           <h2 className="text-[18px] font-bold text-[#2b2b2a] leading-[133%] mb-[20px]">
             {name}
           </h2>

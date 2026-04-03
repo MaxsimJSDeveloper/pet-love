@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, isAnyOf, PayloadAction } from "@reduxjs/toolkit";
 import { responseTypes, usersSliceStateTypes } from "./types";
 import { signIn, signOut, signUp } from "./operation";
 
@@ -14,57 +14,38 @@ const usersSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(
-      signIn.fulfilled,
-      (state, action: PayloadAction<responseTypes>) => {
-        state.isLoading = false;
-        state.user = {
-          name: action.payload.name,
-          email: action.payload.email,
-        };
-        state.token = action.payload.token;
-        state.error = null;
-      }
-    );
-    builder.addCase(signIn.pending, (state) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(signIn.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload as string;
-    });
-
-    builder.addCase(
-      signUp.fulfilled,
-      (state, action: PayloadAction<responseTypes>) => {
-        state.isLoading = false;
-        state.user = {
-          name: action.payload.name,
-          email: action.payload.email,
-        };
-        state.token = action.payload.token;
-        state.error = null;
-      }
-    );
-    builder.addCase(signUp.pending, (state) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(signUp.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload as string;
-    });
-
     builder.addCase(signOut.fulfilled, (state) => {
       state.user = null;
       state.token = null;
       state.error = null;
     });
-    builder.addCase(signOut.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload as string;
-    });
+    builder
+      .addMatcher(
+        isAnyOf(signIn.pending, signUp.pending, signOut.pending),
+        (state) => {
+          state.isLoading = true;
+          state.error = null;
+        },
+      )
+      .addMatcher(
+        isAnyOf(signIn.fulfilled, signUp.fulfilled),
+        (state, action: PayloadAction<responseTypes>) => {
+          state.isLoading = false;
+          state.user = {
+            name: action.payload.name,
+            email: action.payload.email,
+          };
+          state.token = action.payload.token;
+          state.error = null;
+        },
+      )
+      .addMatcher(
+        isAnyOf(signIn.rejected, signUp.rejected, signOut.rejected),
+        (state, action) => {
+          state.isLoading = false;
+          state.error = action.payload as string;
+        },
+      );
   },
 });
 
